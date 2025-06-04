@@ -17,17 +17,23 @@ class RegisterController extends Controller
 {
     public function showRegistrationForm()
     {
-        return view('auth.register');
+        return view('auth.register', [
+            'title' => 'Register'
+        ]);
     }
 
     public function registrationSuccess()
     {
-        return view('auth.register-success');
+        return view('auth.register-success', [
+            'title' => 'Register Success'
+        ]);
     }
 
     public function registerMentor(Request $request)
     {
-        return view('auth.register-mentor');
+        return view('auth.register-mentor', [
+            'title' => 'Register Mentor'
+        ]);
     }
 
     public function store(StoreUserRequest $request)
