@@ -17,9 +17,9 @@ class DashboardController extends Controller
             'title' => 'Dashboard',
             'category' => Category::all(),
             'course' => Course::all(),
-            'mentor' => Mentor::all(),
+            'mentor' => User::where('role', 'mentor')->get(),
             'transaction' => CoursePurchase::all(),
-            'user' => User::whereDoesntHave('mentor')->get(),
+            'user' => User::where('role', 'pelajar')->get(),
         ];
         return view('dashboard.index', $data);
     }

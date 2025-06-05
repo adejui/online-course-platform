@@ -49,7 +49,7 @@ class RegisterController extends Controller
                 $avatarPath = $request->file('avatar')->store('avatars', 'public');
                 $validated['avatar'] = $avatarPath;
             } else {
-                $validated['avatar'] = 'images/default-avatar.png';
+                $validated['avatar'] = 'avatars/default-avatar.png';
             }
 
             $validated['role'] = $validated['role'] ?? 'pelajar';
