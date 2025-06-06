@@ -10,6 +10,26 @@
                         class="p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent flex justify-between items-center">
                         <h6 class="dark:text-white text-lg">Form Tambah Video</h6>
                     </div>
+
+                    <div
+                        class="bg-white rounded-lg px-5 shadow lg:p-6 flex flex-col md:flex-row lg:flex-row items-start md:items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <img src="{{ Storage::url($course->thumbnail) }}" alt="Thumbnail"
+                                class="w-28 object-cover rounded-lg" />
+                            <div>
+                                <h3 class="text-lg font-semibold">{{ $course->name }}</h3>
+                                <p class="text-xs text-gray-500 mb-2">{{ $course->category->name }}</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-2 mt-3 lg:mt-0 md:mt-4">
+                            <div>
+                                <p class="text-sm text-gray-500 mb-0 md:mb-2">Mentor</p>
+                                <h3 class="text-base font-semibold">{{ $course->mentor->user->name }}</h3>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="flex-auto md:max-w-full px-4 pt-4 pb-6">
                         <form action="{{ route('courses.add_video.save', $course->id) }}" method="POST"
                             enctype="multipart/form-data" class="w-full">

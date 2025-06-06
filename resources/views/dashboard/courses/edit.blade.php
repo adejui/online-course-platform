@@ -80,6 +80,20 @@
                                             value="{{ old('price', $course->price) }}"
                                             class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
                                     </div>
+
+                                    <div class="mb-4">
+                                        <label for="keypoints" class="block text-sm font-medium text-gray-700 mb-1">Poin
+                                            Utama</label>
+                                        <div class="flex flex-col gap-y-3">
+                                            @forelse ($course->courseKeypoints as $keypoint)
+                                                <input type="text" name="course_keypoints[]"
+                                                    value="{{ $keypoint->name }}"
+                                                    class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                                            @empty
+                                            @endforelse
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
 

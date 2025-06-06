@@ -29,6 +29,7 @@ class CourseVideoController extends Controller
         $data = [
             'title' => 'Tambah Video Materi',
             'course' => $course,
+            // $course = Course::with('mentor.user')->findOrFail($course->id),
         ];
         return view('dashboard.course_videos.create', $data);
     }

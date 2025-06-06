@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreCourseRequest;
 use App\Http\Requests\UpdateCourseRequest;
+use App\Models\Mentor;
 
 class CoursesController extends Controller
 {
@@ -44,12 +45,16 @@ class CoursesController extends Controller
     public function store(StoreCourseRequest $request)
     {
         // dd($request->all());
-        DB::transaction(function () use ($request) {
+
+        $mentor = Mentor::where('user_id', Auth::user()->id)->first();
+
+
+        DB::transaction(function () use ($request, $mentor) {
             $validated = $request->validated();
 
             // Buat slug otomatis
             $validated['slug'] = Str::slug($validated['name']);
-            $validated['mentor_id'] = Auth::id();
+            $validated['mentor_id'] = $mentor->id;
 
             // Cek dan simpan file thumbnail jika ada
             if ($request->hasFile('thumbnail')) {
@@ -57,8 +62,15 @@ class CoursesController extends Controller
                 $validated['thumbnail'] = $thumbnailPath;
             }
 
-            // Simpan kategori
-            Course::create($validated);
+            $course = Course::create($validated);
+
+            if (!empty($validated['course_keypoints'])) {
+                foreach ($validated['course_keypoints'] as $keypointText) {
+                    $course->courseKeypoints()->create([
+                        'name' => $keypointText,
+                    ]);
+                }
+            }
         });
 
         return redirect()->route('courses.index')->with('success', 'Kelas baru berhasil dibuat.');
@@ -101,7 +113,6 @@ class CoursesController extends Controller
 
             // Buat slug otomatis
             $validated['slug'] = Str::slug($validated['name']);
-            $validated['mentor_id'] = Auth::id();
 
             // Cek dan simpan file ikon jika ada
             if ($request->hasFile('thumbnail')) {
@@ -114,8 +125,16 @@ class CoursesController extends Controller
                 $validated['thumbnail'] = $thumbnailPath;
             }
 
-            // Update kategori
             $course->update($validated);
+
+            if (!empty($validated['course_keypoints'])) {
+                $course->courseKeypoints()->delete();
+                foreach ($validated['course_keypoints'] as $keypointText) {
+                    $course->courseKeypoints()->create([
+                        'name' => $keypointText,
+                    ]);
+                }
+            }
         });
 
         return redirect()->route('courses.show', $course)->with('success', 'Kelas berhasil diperbarui.');
