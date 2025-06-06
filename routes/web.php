@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\CourseVideoController;
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -29,6 +30,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::resource('categories', CategoryController::class); //categories.index
     Route::resource('courses', CoursesController::class); // courses.index
+
+    Route::get('/add/video/{course:id}', [CourseVideoController::class, 'create'])->name('courses.add_video');
+    Route::post('/add/video/save/{course:id}', [CourseVideoController::class, 'store'])->name('courses.add_video.save');
+    Route::resource('course_videos', CourseVideoController::class); // course_videos.index
 
 });
 

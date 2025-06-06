@@ -71,7 +71,8 @@ class CoursesController extends Controller
     {
         $data = [
             'title' => 'Detail Kelas',
-            'course' => $course
+            'course' => $course,
+            'courseVideos' => $course->courseVideos()->oldest()->paginate(5),
         ];
         return view('dashboard.courses.detail', $data);
     }

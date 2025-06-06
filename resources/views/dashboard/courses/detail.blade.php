@@ -16,11 +16,17 @@
                             {{ session('success') }}
                         </div>
                     @endif
-                    <div class="w-full px-4 pt-4 pb-6 space-y-6">
+                    @if (session('delete'))
+                        <div style="background-color: #EF4444"
+                            class="mt-3 w-full mb-4 rounded-lg text-white align-middle text-center px-4 py-3 text-md">
+                            {{ session('delete') }}
+                        </div>
+                    @endif
+                    <div class="w-full lg:px-4 pt-4 pb-6 space-y-6">
                         <!-- Course  -->
                         <div
-                            class="bg-white rounded-lg shadow p-6 flex flex-col md:flex-row lg:flex-row items-start md:items-center justify-between">
-                            <div class="flex items-start gap-4">
+                            class="bg-white rounded-lg shadow lg:p-6 flex flex-col md:flex-row lg:flex-row items-start md:items-center justify-between">
+                            <div class="flex items-center gap-4">
                                 <img src="{{ Storage::url($course->thumbnail) }}" alt="Thumbnail"
                                     class="w-36 h-24 object-cover rounded-lg" />
                                 <div>
@@ -51,34 +57,47 @@
                                     <p class="text-sm text-gray-500">{{ $course->courseVideos->count() }} Total Video</p>
                                 </div>
 
-                                <a href="#"
-                                    class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-5 py-2 rounded-lg">Tambah
+                                <a href="{{ route('courses.add_video', $course->id) }}"
+                                    class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold lg:px-5 px-2 py-2 rounded-lg">Tambah
                                     Video</a>
                             </div>
 
                             <!-- Video Item -->
-                            <div class="md:flex md:justify-between items-center">
-                                <div class="flex items-center gap-4">
-                                    <img src="https://img.youtube.com/vi/YOUTUBE_ID/hqdefault.jpg" alt="Video Thumbnail"
-                                        class="w-20 h-14 object-cover rounded-md" />
-                                    <div>
-                                        <h5 class="text-base font-medium">pertemuan 1</h5>
-                                        <p class="text-sm text-gray-500">Lorem ipsumb s</p>
+                            @forelse ($courseVideos as $courseVideo)
+                                <div class="md:flex md:justify-between items-center">
+                                    <div class="flex items-center gap-4">
+                                        <iframe width="560" class="rounded-2xl object-cover w-[120px] h-[90px]"
+                                            height="315"
+                                            src="https://www.youtube.com/embed/{{ $courseVideo->video_path }}"
+                                            title="YouTube video player" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                        <div>
+                                            <h5 class="text-base font-medium">{{ $courseVideo->name }}</h5>
+                                            <p class="text-sm text-gray-500">{{ $courseVideo->course->category->name }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex md:flex gap-2">
+                                        <a href="{{ route('course_videos.edit', $courseVideo) }}"
+                                            class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-semibold my-2 px-4 py-2 rounded-lg">Edit
+                                        </a>
+                                        <form action="{{ route('course_videos.destroy', $courseVideo) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" style="background-color: #EF4444;"
+                                                onclick="return confirm('Yakin hapus video materi ini?')"
+                                                class="bg-red-600 hover:bg-red-800 text-white text-sm px-4 py-2 my-2 rounded-lg">
+                                                Hapus
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
+                            @empty
+                                <p class="text-center">Belum ada video materi.</p>
+                            @endforelse
 
-                                <div class="flex md:flex gap-2">
-                                    <a href="#"
-                                        class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-semibold my-2 px-4 py-2 rounded-lg">Edit
-                                    </a>
-                                    <form action="#" method="POST">
-                                        <button type="submit" style="background-color: #EF4444;"
-                                            class="bg-red-600 hover:bg-red-800 text-white text-sm px-4 py-2 my-2 rounded-lg">
-                                            Hapus
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
+                            {{ $courseVideos->links() }}
 
                         </div>
                         <a href="{{ route('courses.index') }}"
