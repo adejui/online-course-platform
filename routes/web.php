@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MentorController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\MentorController;
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -24,6 +25,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('mentors/{mentor}/accept', [MentorController::class, 'accept'])->name('mentors.accept');
     Route::post('mentors/{mentor}/reject', [MentorController::class, 'reject'])->name('mentors.reject');
     Route::delete('mentors/{mentor}', [MentorController::class, 'destroy'])->name('mentors.destroy');
+
+    Route::resource('categories', CategoryController::class); //categories.index
+
 });
 
 Route::middleware(['auth', 'role:pelajar'])->group(function () {
