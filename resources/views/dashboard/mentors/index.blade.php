@@ -8,7 +8,7 @@
                 <div
                     class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
                     <div class="p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-                        <h6 class="dark:text-white">Mentor</h6>
+                        <h6 class="dark:text-white font-bold" style="font-size: x-large">Mentor</h6>
                         @if (session('delete'))
                             <div
                                 class="mb-4 rounded-lg bg-gradient-to-tl from-red-600 to-red-400 text-white align-middle text-center px-4 py-3 text-sm">
@@ -111,7 +111,7 @@
                 <div
                     class="relative flex flex-col min-w-0 mb-6 break-words bg-white border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
                     <div class="p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
-                        <h6 class="dark:text-white">Calon Mentor</h6>
+                        <h6 class="dark:text-white font-bold" style="font-size: x-large">Calon Mentor</h6>
                         @if (session('success'))
                             <div
                                 class="mb-4 rounded-lg bg-gradient-to-tl from-emerald-500 to-teal-400 text-white align-middle text-center px-4 py-3 text-sm">

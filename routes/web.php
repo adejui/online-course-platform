@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CoursesController;
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -27,6 +28,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::delete('mentors/{mentor}', [MentorController::class, 'destroy'])->name('mentors.destroy');
 
     Route::resource('categories', CategoryController::class); //categories.index
+    Route::resource('courses', CoursesController::class); // courses.index
 
 });
 
