@@ -18,6 +18,7 @@
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <!-- Main Styling -->
     <link href="{{ asset('assets/css/argon-dashboard-tailwind.css') }}?v=1.0.1" rel="stylesheet" />
+    <script src="//unpkg.com/alpinejs" defer></script>
     @vite('resources/css/app.css')
 
 </head>
@@ -49,71 +50,97 @@
 
         <div class="items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full">
             <ul class="flex flex-col pl-0 mb-0">
-                <li class="mt-0.5 w-full">
-                    <a class="py-2.7 {{ request()->routeIs('dashboard') ? 'bg-blue-500/13 rounded-lg font-semibold text-slate-700' : 'text-dark' }} px-4 dark:text-white dark:opacity-80 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap  transition-colors"
-                        href="{{ route('dashboard') }}">
-                        <div
-                            class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                            <i class="relative top-0 text-sm leading-normal text-blue-500 ni ni-tv-2"></i>
-                        </div>
-                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Dashboard</span>
-                    </a>
-                </li>
+                @auth
+                    @if (auth()->user()->role === 'admin' || auth()->user()->role === 'mentor')
+                        <li class="mt-0.5 w-full">
+                            <a class="py-2.7 {{ request()->routeIs('dashboard') ? 'bg-blue-500/13 rounded-lg font-semibold text-slate-700' : 'text-dark' }} px-4 dark:text-white dark:opacity-80 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap  transition-colors"
+                                href="{{ route('dashboard') }}">
+                                <div
+                                    class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                                    <i class="relative top-0 text-sm leading-normal text-blue-500 ni ni-tv-2"></i>
+                                </div>
+                                <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Dashboard</span>
+                            </a>
+                        </li>
+                    @endif
+                @endauth
 
-                <li class="mt-0.5 w-full">
-                    <a class="{{ request()->routeIs('courses.index') ? 'bg-blue-500/13 rounded-lg font-semibold text-slate-700' : 'text-dark' }} dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
-                        href="{{ route('courses.index') }}">
-                        <div
-                            class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                            <i class="relative top-0 text-sm leading-normal text-orange-500 ni ni-calendar-grid-58"></i>
-                        </div>
-                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Kelola Kelas</span>
-                    </a>
-                </li>
+                @auth
+                    @if (auth()->user()->role === 'mentor')
+                        <li class="mt-0.5 w-full">
+                            <a class="{{ request()->routeIs('courses.index') ? 'bg-blue-500/13 rounded-lg font-semibold text-slate-700' : 'text-dark' }} dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
+                                href="{{ route('courses.index') }}">
+                                <div
+                                    class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                                    <i
+                                        class="relative top-0 text-sm leading-normal text-orange-500 ni ni-calendar-grid-58"></i>
+                                </div>
+                                <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Kelola Kelas</span>
+                            </a>
+                        </li>
+                    @endif
+                @endauth
 
-                <li class="mt-0.5 w-full">
-                    <a class="{{ request()->routeIs('categories.index') ? 'bg-blue-500/13 rounded-lg font-semibold text-slate-700' : 'text-dark' }} dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
-                        href="{{ route('categories.index') }}">
-                        <div
-                            class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center fill-current stroke-0 text-center xl:p-2.5">
-                            <i class="relative top-0 text-sm leading-normal text-emerald-500 ni ni-credit-card"></i>
-                        </div>
-                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Kelola Kategori</span>
-                    </a>
-                </li>
+                @auth
+                    @if (auth()->user()->role === 'admin')
+                        <li class="mt-0.5 w-full">
+                            <a class="{{ request()->routeIs('categories.index') ? 'bg-blue-500/13 rounded-lg font-semibold text-slate-700' : 'text-dark' }} dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
+                                href="{{ route('categories.index') }}">
+                                <div
+                                    class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center fill-current stroke-0 text-center xl:p-2.5">
+                                    <i class="relative top-0 text-sm leading-normal text-emerald-500 ni ni-credit-card"></i>
+                                </div>
+                                <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Kelola Kategori</span>
+                            </a>
+                        </li>
+                    @endif
+                @endauth
 
-                <li class="mt-0.5 w-full">
-                    <a class="{{ request()->routeIs('mentors.index') ? 'bg-blue-500/13 rounded-lg font-semibold text-slate-700' : 'text-dark' }} dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
-                        href="{{ route('mentors.index') }}">
-                        <div
-                            class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                            <i class="relative top-0 text-sm leading-normal text-cyan-500 ni ni-app"></i>
-                        </div>
-                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Kelola Mentor</span>
-                    </a>
-                </li>
+                @auth
+                    @if (auth()->user()->role === 'admin')
+                        <li class="mt-0.5 w-full">
+                            <a class="{{ request()->routeIs('mentors.index') ? 'bg-blue-500/13 rounded-lg font-semibold text-slate-700' : 'text-dark' }} dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
+                                href="{{ route('mentors.index') }}">
+                                <div
+                                    class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                                    <i class="relative top-0 text-sm leading-normal text-cyan-500 ni ni-app"></i>
+                                </div>
+                                <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Kelola Mentor</span>
+                            </a>
+                        </li>
+                    @endif
+                @endauth
 
-                <li class="mt-0.5 w-full">
-                    <a class="{{ request()->routeIs('mentor_courses.index') ? 'bg-blue-500/13 rounded-lg font-semibold text-slate-700' : 'text-dark' }} dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
-                        href="{{ route('mentor_courses.index') }}">
-                        <div
-                            class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                            <i class="relative top-0 text-sm leading-normal text-cyan-500 ni ni-app"></i>
-                        </div>
-                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Kelola Konten Mentor</span>
-                    </a>
-                </li>
+                @auth
+                    @if (auth()->user()->role === 'admin')
+                        <li class="mt-0.5 w-full">
+                            <a class="{{ request()->routeIs('mentor_courses.index') ? 'bg-blue-500/13 rounded-lg font-semibold text-slate-700' : 'text-dark' }} dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
+                                href="{{ route('mentor_courses.index') }}">
+                                <div
+                                    class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                                    <i class="relative top-0 text-sm leading-normal text-cyan-500 ni ni-app"></i>
+                                </div>
+                                <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Kelola Konten
+                                    Mentor</span>
+                            </a>
+                        </li>
+                    @endif
+                @endauth
 
-                <li class="mt-0.5 w-full">
-                    <a class="{{ request()->routeIs('course_purchases.index') ? 'bg-blue-500/13 rounded-lg font-semibold text-slate-700' : 'text-dark' }} dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
-                        href="{{ route('course_purchases.index') }}">
-                        <div
-                            class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                            <i class="relative top-0 text-sm leading-normal text-red-600 ni ni-world-2"></i>
-                        </div>
-                        <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Transaksi</span>
-                    </a>
-                </li>
+                @auth
+                    @if (auth()->user()->role === 'admin')
+                        <li class="mt-0.5 w-full">
+                            <a class="{{ request()->routeIs('course_purchases.index') ? 'bg-blue-500/13 rounded-lg font-semibold text-slate-700' : 'text-dark' }} dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
+                                href="{{ route('course_purchases.index') }}">
+                                <div
+                                    class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
+                                    <i class="relative top-0 text-sm leading-normal text-red-600 ni ni-world-2"></i>
+                                </div>
+                                <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Transaksi</span>
+                            </a>
+                        </li>
+                    @endif
+                @endauth
             </ul>
         </div>
 
@@ -122,7 +149,7 @@
     <!-- end sidenav -->
     <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl">
         <!-- Navbar -->
-        <nav class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start"
+        <nav class="relative flex flex-wrap items-center justify-between px-3 py-2 mx-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start"
             navbar-main navbar-scroll="false">
             <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
                 <nav>
@@ -137,25 +164,7 @@
                     <h6 class="mb-0 font-bold text-white capitalize">{{ $title }}</h6>
                 </nav>
 
-                <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
-                    <div class="flex items-center md:ml-auto md:pr-4">
-                        <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease">
-                            <span
-                                class="text-sm ease leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500 dark:text-gray-300"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z" />
-                                </svg>
-                            </span>
-                            <input type="text"
-                                class="pl-9 text-sm focus:shadow-primary-outline ease w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 dark:bg-slate-850 dark:text-white bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none focus:transition-shadow"
-                                placeholder="Type here..." />
-                        </div>
-                    </div>
-
-                    <!-- Tambahkan di bagian <head> -->
-                    <script src="//unpkg.com/alpinejs" defer></script>
+                <div class="flex items-end justify-end mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
 
                     <!-- Navbar -->
                     <ul class="flex items-center justify-end space-x-4">
@@ -176,8 +185,15 @@
                             <button @click="open = !open" class="flex items-center space-x-2 focus:outline-none">
                                 @auth
                                     @if (Auth::user()->avatar)
-                                        <img src="{{ Storage::url(Auth::user()->avatar) }}" alt="qq"
-                                            class="w-10 h-10 rounded-full">
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-10 h-10">
+                                                <img src="{{ Storage::url(Auth::user()->avatar) }}" alt="Avatar"
+                                                    class="w-full h-full object-cover rounded-full">
+                                            </div>
+                                            <div class="text-sm font-medium text-white">
+                                                {{ Auth::user()->name }}
+                                            </div>
+                                        </div>
                                     @else
                                         <img src="{{ asset('storage/avatars/default-avatar.png') }}" alt="User Image"
                                             class="w-10 h-10 rounded-full">

@@ -20,10 +20,23 @@ class CoursesController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+
+        $query = Course::with(['category', 'mentor'])->orderByDesc('id');
+
+        if ($user->role === 'mentor') {
+            $query->whereHas('mentor', function ($q) use ($user) {
+                $q->where('user_id', $user->id);
+            });
+        }
+
+        $courses = $query->paginate(10);
+
         $data = [
             'title' => 'Kelola Kelas',
-            'courses' => Course::latest()->paginate(10),
+            'courses' => $courses,
         ];
+
         return view('dashboard.courses.index', $data);
     }
 

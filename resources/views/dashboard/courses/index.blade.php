@@ -117,8 +117,8 @@
                                     @endforelse
                                 </tbody>
                             </table>
-                            {{ $courses->links() }}
                         </div>
+                        {{ $courses->links() }}
                     </div>
                 </div>
             </div>
