@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CoursePurchaseController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\CourseVideoController;
 
@@ -29,6 +30,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::delete('mentors/{mentor}', [MentorController::class, 'destroy'])->name('mentors.destroy');
 
     Route::resource('categories', CategoryController::class); //categories.index
+
+    Route::get('/course_purchases', [CoursePurchaseController::class, 'index'])->name('course_purchases.index');
+    Route::get('/course_purchases/{mentor}', [CoursePurchaseController::class, 'show'])->name('course_purchases.show');
 });
 
 Route::middleware(['auth', 'role:mentor'])->group(function () {
