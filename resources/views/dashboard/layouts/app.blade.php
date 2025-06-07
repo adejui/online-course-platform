@@ -94,8 +94,8 @@
                 </li>
 
                 <li class="mt-0.5 w-full">
-                    <a class=" dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
-                        href="./pages/virtual-reality.html">
+                    <a class="{{ request()->routeIs('mentor_courses.index') ? 'bg-blue-500/13 rounded-lg font-semibold text-slate-700' : 'text-dark' }} dark:text-white dark:opacity-80 py-2.7 text-sm ease-nav-brand my-0 mx-2 flex items-center whitespace-nowrap px-4 transition-colors"
+                        href="{{ route('mentor_courses.index') }}">
                         <div
                             class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
                             <i class="relative top-0 text-sm leading-normal text-cyan-500 ni ni-app"></i>

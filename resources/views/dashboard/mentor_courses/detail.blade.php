@@ -26,22 +26,33 @@
                         <!-- Course  -->
                         <div
                             class="bg-white rounded-lg shadow lg:p-6 flex flex-col md:flex-row lg:flex-row items-start md:items-center justify-between">
-                            <div class="flex items-center gap-4">
-                                <img src="{{ Storage::url($course->thumbnail) }}" alt="Thumbnail"
-                                    class="w-36 h-24 object-cover rounded-lg" />
+                            <div class="flex-col lg:flex items-center w-full gap-4 lg:flex-row justify-between lg:px-16">
+                                <div class="flex gap-x-3 items-center">
+                                    <img src="{{ Storage::url($course->thumbnail) }}" alt="Thumbnail"
+                                        class="w-36 h-24 object-cover rounded-lg" />
+                                    <div>
+                                        <h3 class="text-xl font-semibold">{{ $course->name }}</h3>
+                                        <p class="text-sm text-gray-500 mb-2">{{ $course->category?->name }}</p>
+                                    </div>
+                                </div>
+
                                 <div>
-                                    <h3 class="text-xl font-semibold">{{ $course->name }}</h3>
-                                    <p class="text-sm text-gray-500 mb-2">{{ $course->category->name }}</p>
+                                    <p class="text-sm text-gray-500 mb-0 md:mb-2">Mentor</p>
+                                    <h3 class="text-base font-semibold">
+                                        {{ optional($course->mentor?->user)->name ?? 'Mentor Tidak Ditemukan' }}</h3>
                                 </div>
                             </div>
 
                             <div class="flex gap-2 mt-4 md:mt-4">
-                                <a href="{{ route('courses.edit', $course) }}"
-                                    class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-semibold px-5 py-2 rounded-lg">Edit
-                                    Kelas</a>
-                                <form action="#" method="POST">
+                                <a href="{{ route('mentor_courses.show_course', $course) }}"
+                                    class="bg-gray-500 mt-3 hover:bg-gray-600 text-white text-sm font-semibold px-5 py-2 rounded-lg">
+                                    Detail
+                                </a>
+
+                                <form action="{{ route('mentor_courses.destroy_course', $course) }}" method="POST"
+                                    class="mt-3">
                                     <button type="submit" style="background-color: #EF4444;"
-                                        class="bg-red-600 hover:bg-red-700 text-white text-sm font-semibold px-5 py-2 rounded-lg">Hapus</button>
+                                        class="bg-red-600 hover:bg-red-700 text-white text-sm font-semibold px-5 py-2 rounded-lg">Delete</button>
                                 </form>
                             </div>
                         </div>
@@ -56,10 +67,6 @@
                                     <h4 class="text-lg font-semibold">Video Materi</h4>
                                     <p class="text-sm text-gray-500">{{ $course->courseVideos->count() }} Total Video</p>
                                 </div>
-
-                                <a href="{{ route('courses.add_video', $course->id) }}"
-                                    class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold lg:px-5 px-2 py-2 rounded-lg">Tambah
-                                    Video</a>
                             </div>
 
                             <!-- Video Item -->
@@ -79,10 +86,8 @@
                                     </div>
 
                                     <div class="flex md:flex gap-2">
-                                        <a href="{{ route('course_videos.edit', $courseVideo) }}"
-                                            class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-semibold my-2 px-4 py-2 rounded-lg">Edit
-                                        </a>
-                                        <form action="{{ route('course_videos.destroy', $courseVideo) }}" method="POST">
+                                        <form action="{{ route('mentor_courses.destroy_video', $courseVideo) }}"
+                                            method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" style="background-color: #EF4444;"
@@ -100,7 +105,7 @@
                             {{ $courseVideos->links() }}
 
                         </div>
-                        <a href="{{ route('courses.index') }}"
+                        <a href="{{ route('mentor_courses.index') }}"
                             class="items-center px-6 py-2 mt-6 text-xs flex justify-center text-center font-bold text-white bg-slate-700 rounded-lg hover:bg-slate-800"
                             style="width: 130px; height: 40px;">
                             Kembali

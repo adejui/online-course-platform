@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CoursePurchaseController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\CourseVideoController;
+use App\Http\Controllers\MentorCourseController;
 
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -30,6 +31,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::delete('mentors/{mentor}', [MentorController::class, 'destroy'])->name('mentors.destroy');
 
     Route::resource('categories', CategoryController::class); //categories.index
+
+    // Kelola konten Mentor
+    Route::resource('mentor_courses', MentorCourseController::class); // mentor_courses.index
+    Route::get('mentor_courses/course/{course}', [MentorCourseController::class, 'show_course'])->name('mentor_courses.show_course');
+    Route::delete('mentor_courses/course/{course}', [MentorCourseController::class, 'destroy_course'])->name('mentor_courses.destroy_course');
+    Route::delete('mentor_courses/video/{video}', [MentorCourseController::class, 'destroy_video'])->name('mentor_courses.destroy_video');
 
     Route::get('/course_purchases', [CoursePurchaseController::class, 'index'])->name('course_purchases.index');
     Route::get('/course_purchases/{mentor}', [CoursePurchaseController::class, 'show'])->name('course_purchases.show');
