@@ -48,6 +48,8 @@ Route::middleware(['auth', 'role:mentor'])->group(function () {
     Route::get('/add/video/{course:id}', [CourseVideoController::class, 'create'])->name('courses.add_video');
     Route::post('/add/video/save/{course:id}', [CourseVideoController::class, 'store'])->name('courses.add_video.save');
     Route::resource('course_videos', CourseVideoController::class); // course_videos.index
+
+    Route::get('/mentor/course_purchases', [CoursePurchaseController::class, 'mentor_index'])->name('mentor.course_purchases.index');
 });
 
 Route::middleware(['auth', 'role:pelajar'])->group(function () {

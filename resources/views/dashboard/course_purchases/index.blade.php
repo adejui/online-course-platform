@@ -41,8 +41,9 @@
                                 </thead>
                                 <tbody>
                                     @forelse ($mentors as $mentor)
-                                        <tr class="border-b ">
-                                            <td class="px-6 py-4 font-semibold align-top">
+                                        <tr class="border-b text-gray-800">
+                                            <td
+                                                class="px-6 py-4 text-base font-semibold leading-normal dark:text-white align-top">
                                                 {{ $mentor->user->name }}
                                             </td>
                                             <td class="px-6 py-4 text-center">
