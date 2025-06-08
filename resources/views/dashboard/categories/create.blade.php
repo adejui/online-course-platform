@@ -24,6 +24,9 @@
                                 </div>
                                 <input type="file" id="icon" name="icon" onchange="previewPhoto()"
                                     class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                                @error('icon')
+                                    <p class="text-sm text-red-500 mb-0 mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <!-- Nama -->
@@ -31,6 +34,9 @@
                                 <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama</label>
                                 <input type="text" id="name" name="name" autofocus value="{{ old('name') }}"
                                     class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                                @error('name')
+                                    <p class="text-sm text-red-500 mb-0 mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <!-- Tombol -->

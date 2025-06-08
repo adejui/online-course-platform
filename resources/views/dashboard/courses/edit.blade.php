@@ -30,6 +30,9 @@
                                         </div>
                                         <input type="file" id="thumbnail" name="thumbnail" onchange="previewPhoto()"
                                             class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                                        @error('thumbnail')
+                                            <p class="text-sm text-red-500 mb-0 mt-1">{{ $message }}</p>
+                                        @enderror
                                     </div>
 
                                     <div class="mb-4">
@@ -38,6 +41,9 @@
                                         <input type="text" id="name" name="name" autofocus
                                             value="{{ old('name', $course->name) }}"
                                             class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                                        @error('name')
+                                            <p class="text-sm text-red-500 mb-0 mt-1">{{ $message }}</p>
+                                        @enderror
                                     </div>
 
                                     <div class="mb-4">
@@ -45,6 +51,9 @@
                                             Kelas</label>
                                         <textarea id="about" name="about" cols="30" rows="9" autofocus
                                             class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent">{{ old('about', $course->about) }}</textarea>
+                                        @error('about')
+                                            <p class="text-sm text-red-500 mb-0 mt-1">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -63,14 +72,20 @@
                                             @empty
                                             @endforelse
                                         </select>
+                                        @error('category_id')
+                                            <p class="text-sm text-red-500 mb-0 mt-1">{{ $message }}</p>
+                                        @enderror
                                     </div>
 
                                     <div class="mb-4">
-                                        <label for="trailer_path"
-                                            class="block text-sm font-medium text-gray-700 mb-1">Trailer Path</label>
+                                        <label for="trailer_path" class="block text-sm font-medium text-gray-700 mb-1">Path
+                                            Trailer</label>
                                         <input type="text" id="trailer_path" name="trailer_path" autofocus
                                             value="{{ old('trailer_path', $course->trailer_path) }}"
                                             class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                                        @error('trailer_path')
+                                            <p class="text-sm text-red-500 mb-0 mt-1">{{ $message }}</p>
+                                        @enderror
                                     </div>
 
                                     <div class="mb-4">
@@ -79,16 +94,25 @@
                                         <input type="number" id="price" name="price" autofocus
                                             value="{{ old('price', $course->price) }}"
                                             class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                                        @error('price')
+                                            <p class="text-sm text-red-500 mb-0 mt-1">{{ $message }}</p>
+                                        @enderror
                                     </div>
 
                                     <div class="mb-4">
                                         <label for="keypoints" class="block text-sm font-medium text-gray-700 mb-1">Poin
                                             Utama</label>
-                                        <div class="flex flex-col gap-y-3">
-                                            @forelse ($course->courseKeypoints as $keypoint)
-                                                <input type="text" name="course_keypoints[]"
-                                                    value="{{ $keypoint->name }}"
-                                                    class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                                        <div class="flex flex-col gap-y-2">
+                                            @forelse ($course->courseKeypoints as $i => $keypoint)
+                                                <div>
+                                                    <input type="text" name="course_keypoints[]"
+                                                        value="{{ old('course_keypoints.' . $i, $keypoint->name) }}"
+                                                        class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+
+                                                    @error('course_keypoints.' . $i)
+                                                        <p class="text-sm text-red-500 mt-0">{{ $message }}</p>
+                                                    @enderror
+                                                </div>
                                             @empty
                                             @endforelse
                                         </div>

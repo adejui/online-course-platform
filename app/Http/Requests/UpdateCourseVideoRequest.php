@@ -30,13 +30,13 @@ class UpdateCourseVideoRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Nama wajib diisi.',
-            'name.string'   => 'Nama harus berupa teks.',
-            'name.max'      => 'Nama tidak boleh lebih dari 255 karakter.',
+            'name.required' => 'Judul video wajib diisi.',
+            'name.string'   => 'Judul video harus berupa teks.',
+            'name.max'      => 'Judul video tidak boleh lebih dari 255 karakter.',
 
-            'video_path.required' => 'Path video wajib diisi.',
-            'video_path.string'   => 'Path video harus berupa teks.',
-            'video_path.max'      => 'Path video tidak boleh lebih dari 255 karakter.',
+            'video_path.required' => 'URL video wajib diisi.',
+            'video_path.string'   => 'URL video harus berupa teks.',
+            'video_path.max'      => 'URL video tidak boleh lebih dari 255 karakter.',
         ];
     }
 }

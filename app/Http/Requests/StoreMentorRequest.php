@@ -40,7 +40,7 @@ class StoreMentorRequest extends FormRequest
             'cv_file.required' => 'File CV wajib diunggah.',
             'cv_file.file' => 'File CV harus berupa file yang valid.',
             'cv_file.mimes' => 'File CV harus berformat PDF.',
-            'cv_file.max' => 'Ukuran file CV maksimal 2MB.',
+            'cv_file.max' => 'Ukuran file CV maksimal 4MB.',
 
             'bank_account_number.required' => 'Nomor rekening wajib diisi.',
             'bank_account_number.string' => 'Nomor rekening harus berupa teks.',

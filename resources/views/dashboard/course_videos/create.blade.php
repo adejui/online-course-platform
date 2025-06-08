@@ -36,17 +36,24 @@
                             @csrf
 
                             <div class="mb-4">
-                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama</label>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Judul
+                                    Video</label>
                                 <input type="text" id="name" name="name" autofocus value="{{ old('name') }}"
                                     class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                                @error('name')
+                                    <p class="text-sm text-red-500 mb-0 mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <div class="mb-4">
-                                <label for="video_path" class="block text-sm font-medium text-gray-700 mb-1">Video
-                                    Path</label>
+                                <label for="video_path" class="block text-sm font-medium text-gray-700 mb-1">URL
+                                    Video</label>
                                 <input type="text" id="video_path" name="video_path" autofocus
                                     value="{{ old('video_path') }}"
                                     class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent" />
+                                @error('video_path')
+                                    <p class="text-sm text-red-500 mb-0 mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <div class="flex justify-between">

@@ -44,8 +44,13 @@
                     </p>
 
                     <label class="block mt-2 text-sm font-medium text-gray-700 mb-1">Foto Profil</label>
-                    <input type="file" name="avatar"
-                        class="w-full border border-pink-200 focus:border-pink-500 rounded-lg px-3 py-3 text-sm focus:outline-none">
+                    <div class="mb-2 flex justify-start">
+                        <img id="photoPreview" src="#" alt="Preview Foto"
+                            class="w-20 h-20 rounded-lg object-cover hidden" />
+                    </div>
+                    <input type="file" id="avatar" name="avatar" onchange="previewPhoto()"
+                        class="w-full
+                        border border-pink-200 focus:border-pink-500 rounded-lg px-3 py-3 text-sm focus:outline-none">
                     <p
                         class="text-[11px] leading-tight min-h-[25px] {{ $errors->has('avatar') ? 'text-red-500' : 'invisible' }}">
                         {{ $errors->first('avatar') ?: 'PNG, JPG, JPEG up to 2MB.' }}
@@ -63,3 +68,22 @@
         </div>
     </div>
 @endsection
+
+<script>
+    function previewPhoto() {
+        const input = document.getElementById('avatar');
+        const preview = document.getElementById('photoPreview');
+
+        const file = input.files[0];
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.classList.remove('hidden');
+            }
+
+            reader.readAsDataURL(file);
+        }
+    }
+</script>

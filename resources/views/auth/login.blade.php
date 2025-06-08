@@ -45,7 +45,6 @@
 
                     <div class="flex justify-between items-center mt-4 mb-2">
                         <label class="text-sm font-medium text-gray-700">Password</label>
-                        <a href="#" class="text-sm text-gray-500 hover:underline">Forgot?</a>
                     </div>
                     <input type="password" name="password"
                         class="w-full border border-gray-300 rounded-lg px-4 py-3 mb-0 text-sm

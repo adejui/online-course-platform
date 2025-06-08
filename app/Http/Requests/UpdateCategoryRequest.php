@@ -25,7 +25,21 @@ class UpdateCategoryRequest extends FormRequest
 
         return [
             'name' => 'required|string|max:255|unique:categories,name' . ($categoryId ? ',' . $categoryId : ''),
-            'icon' => 'image|mimes:png,jpg,jpeg,svg,webp|max:2048',
+            'icon' => 'image|mimes:png,jpg,jpeg,svg,webp|max:4096',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Nama kategori wajib diisi.',
+            'name.string' => 'Nama kategori harus berupa teks.',
+            'name.max' => 'Nama kategori maksimal 255 karakter.',
+            'name.unique' => 'Nama kategori sudah digunakan, silakan gunakan nama lain.',
+
+            'icon.image' => 'File ikon harus berupa gambar.',
+            'icon.mimes' => 'Format ikon harus png, jpg, atau jpeg.',
+            'icon.max' => 'Ukuran ikon maksimal 4MB.',
         ];
     }
 }
