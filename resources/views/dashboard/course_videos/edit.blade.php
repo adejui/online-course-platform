@@ -44,7 +44,7 @@
                                     style="width: 130px; height: 45px;">
                                     Kembali
                                 </a>
-                                <button type="submit" style="background-color: #4f46e5;"
+                                <button type="submit" style="background-color: #3B82F6;"
                                     class="items-center px-6 py-2 mt-6 text-sm flex justify-center text-center font-bold text-white rounded-lg"
                                     style="width: 130px; height: 45px;">
                                     Simpan

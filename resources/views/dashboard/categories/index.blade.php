@@ -10,8 +10,8 @@
                     <div
                         class="py-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent flex justify-between items-center">
                         <h6 class="dark:text-white font-bold" style="font-size: x-large;">Kategori</h6>
-                        <a href="{{ route('categories.create') }}"
-                            class="items-center text-xs flex justify-center text-center font-bold text-white bg-slate-700 rounded-lg hover:bg-slate-800"
+                        <a href="{{ route('categories.create') }}" style="background-color: #3B82F6;"
+                            class="items-center text-xs flex justify-center text-center font-bold text-white rounded-lg px-3 py-3"
                             style="width: 130px; height: 40px;">
                             Tambah Kategori
                         </a>
@@ -83,16 +83,16 @@
                                             <td
                                                 class="p-2 align-middle leading-normal text-center bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
                                                 <a href="{{ route('categories.edit', $category) }}"
-                                                    style="background-color: orange"
-                                                    class=" px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">
+                                                    style="background-color: #FACC15"
+                                                    class=" px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold leading-none text-white">
                                                     Edit
                                                 </a>
                                                 <form action="{{ route('categories.destroy', $category) }}" method="POST"
                                                     style="display:inline">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" style="background-color: red;"
-                                                        class=" px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white"
+                                                    <button type="submit" style="background-color: #EF4444;"
+                                                        class=" px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold leading-none text-white"
                                                         onclick="return confirm('Yakin hapus kategori ini?')">Hapus</button>
                                                 </form>
                                             </td>

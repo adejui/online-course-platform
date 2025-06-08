@@ -57,7 +57,8 @@
                                             </td>
                                             <td class="px-6 py-4 text-center">
                                                 <a href="{{ route('course_purchases.show', $mentor) }}"
-                                                    class="bg-gradient-to-tl from-blue-500 to-blue-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">
+                                                    style="background-color: #60A5FA;"
+                                                    class="px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold leading-none text-white">
                                                     Detail
                                                 </a>
                                             </td>

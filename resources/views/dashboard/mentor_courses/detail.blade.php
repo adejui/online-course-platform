@@ -45,15 +45,16 @@
 
                             <div class="flex gap-2 mt-4 md:mt-4">
                                 <a href="{{ route('mentor_courses.show_course', $course) }}"
-                                    class="bg-gray-500 mt-3 hover:bg-gray-600 text-white text-sm font-semibold px-5 py-2 rounded-lg">
-                                    Detail
+                                    style="background-color: #60A5FA;"
+                                    class="text-white text-sm lg:mt-2 lg:w-32 font-semibold px-5 py-2 text-center rounded-lg">
+                                    Detail Kelas
                                 </a>
 
-                                <form action="{{ route('mentor_courses.destroy_course', $course) }}" method="POST"
+                                {{-- <form action="{{ route('mentor_courses.destroy_course', $course) }}" method="POST"
                                     class="mt-3">
                                     <button type="submit" style="background-color: #EF4444;"
-                                        class="bg-red-600 hover:bg-red-700 text-white text-sm font-semibold px-5 py-2 rounded-lg">Delete</button>
-                                </form>
+                                        class="bg-red-600 hover:bg-red-700 text-white text-sm font-semibold px-5 py-2 rounded-lg">Hapus</button>
+                                </form> --}}
                             </div>
                         </div>
 

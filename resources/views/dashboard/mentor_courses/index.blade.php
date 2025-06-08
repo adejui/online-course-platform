@@ -90,15 +90,16 @@
                                             <td
                                                 class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
                                                 <a href="{{ route('mentor_courses.show', $course) }}"
-                                                    class="bg-gradient-to-tl from-blue-500 to-blue-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">
+                                                    style="background-color: #60A5FA;"
+                                                    class="px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold leading-none text-white">
                                                     Detail
                                                 </a>
                                                 <form action="{{ route('mentor_courses.destroy_course', $course) }}"
                                                     method="POST" style="display:inline">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit"
-                                                        class="bg-gradient-to-tl from-red-600 to-red-400 hover:from-red-700 hover:to-red-500 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white"
+                                                    <button type="submit" style="background-color: #EF4444;"
+                                                        class="px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold leading-none text-white"
                                                         onclick="return confirm('Apakah yakin ingin hapus kelas ini?')">Hapus</button>
                                                 </form>
                                             </td>

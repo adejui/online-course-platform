@@ -36,13 +36,13 @@
                             </div>
 
                             <div class="flex gap-2 mt-4 md:mt-4">
-                                <a href="{{ route('courses.edit', $course) }}"
-                                    class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-semibold px-5 py-2 rounded-lg">Edit
+                                <a href="{{ route('courses.edit', $course) }}" style="background-color: #FACC15"
+                                    class="text-white text-sm font-semibold px-5 py-2 rounded-lg">Edit
                                     Kelas</a>
-                                <form action="#" method="POST">
+                                {{-- <form action="#" method="POST">
                                     <button type="submit" style="background-color: #EF4444;"
                                         class="bg-red-600 hover:bg-red-700 text-white text-sm font-semibold px-5 py-2 rounded-lg">Hapus</button>
-                                </form>
+                                </form> --}}
                             </div>
                         </div>
 
@@ -57,8 +57,8 @@
                                     <p class="text-sm text-gray-500">{{ $course->courseVideos->count() }} Total Video</p>
                                 </div>
 
-                                <a href="{{ route('courses.add_video', $course->id) }}"
-                                    class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold lg:px-5 px-2 py-2 rounded-lg">Tambah
+                                <a href="{{ route('courses.add_video', $course->id) }}" style="background-color: #3B82F6;"
+                                    class="text-white text-sm font-semibold lg:px-5 px-3 py-2 rounded-lg">Tambah
                                     Video</a>
                             </div>
 
@@ -80,7 +80,8 @@
 
                                     <div class="flex md:flex gap-2">
                                         <a href="{{ route('course_videos.edit', $courseVideo) }}"
-                                            class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-semibold my-2 px-4 py-2 rounded-lg">Edit
+                                            style="background-color: #FACC15"
+                                            class="text-white text-sm font-semibold my-2 px-4 py-2 rounded-lg">Edit
                                         </a>
                                         <form action="{{ route('course_videos.destroy', $courseVideo) }}" method="POST">
                                             @csrf

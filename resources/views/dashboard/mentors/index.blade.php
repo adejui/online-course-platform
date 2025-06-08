@@ -38,7 +38,7 @@
                                             Email</th>
                                         <th
                                             class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-900 opacity-70">
-                                            Occupation</th>
+                                            Pekerjaan</th>
                                         <th
                                             class="px-6 py-3 font-bold text-center uppercase align-middle bg-transparent border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-900 opacity-70">
                                             Aksi</th>
@@ -76,15 +76,16 @@
                                             <td
                                                 class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
                                                 <a href="{{ route('mentors.show', $mentor) }}"
-                                                    class="bg-gradient-to-tl from-blue-500 to-blue-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">
+                                                    style="background-color: #60A5FA;"
+                                                    class="px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold leading-none text-white">
                                                     Detail
                                                 </a>
                                                 <form action="{{ route('mentors.destroy', $mentor) }}" method="POST"
                                                     style="display:inline">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit"
-                                                        class="bg-gradient-to-tl from-red-600 to-red-400 hover:from-red-700 hover:to-red-500 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white"
+                                                    <button type="submit" style="background-color: #EF4444;"
+                                                        class="px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold leading-none text-white"
                                                         onclick="return confirm('Yakin hapus mentor ini?')">Hapus</button>
                                                 </form>
                                             </td>
@@ -136,7 +137,7 @@
                                             Nama</th>
                                         <th
                                             class="px-6 py-3 pl-2 font-bold text-left uppercase align-middle bg-transparent border-b shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-900 opacity-70">
-                                            Occupation</th>
+                                            Pekerjaan</th>
                                         <th
                                             class="px-6 py-3 pl-2 font-bold text-center uppercase align-middle bg-transparent border-b shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-900 opacity-70">
                                             Status</th>
@@ -176,22 +177,25 @@
                                             <td
                                                 class="p-2 text-sm leading-normal text-center align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
                                                 <a href="{{ route('mentors.show', $candidateMentor) }}"
-                                                    class="bg-gradient-to-tl from-blue-500 to-blue-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">
+                                                    style="background-color: #60A5FA;"
+                                                    class=" px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold leading-none text-white">
                                                     Detail
                                                 </a>
                                                 <form action="{{ route('mentors.accept', $candidateMentor) }}"
                                                     method="POST"
                                                     onsubmit="return confirm('Apakah yakin ingin menerima mentor ini?')"
-                                                    class="bg-gradient-to-tl from-emerald-500 to-teal-400 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white">
+                                                    style="background-color: #10B981;"
+                                                    class="px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold leading-none text-white">
                                                     @csrf
-                                                    <button type="submit">ACC</button>
+                                                    <button type="submit">Setuju</button>
                                                 </form>
                                                 <form action="{{ route('mentors.reject', $candidateMentor) }}"
-                                                    class="bg-gradient-to-tl from-red-600 to-red-400 hover:from-red-700 hover:to-red-500 px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold uppercase leading-none text-white"
+                                                    style="background-color: #EF4444;"
+                                                    class="px-2.5 text-xs rounded-1.8 py-1.4 inline-block whitespace-nowrap text-center align-baseline font-bold leading-none text-white"
                                                     method="POST"
                                                     onsubmit="return confirm('Apakah yakin ingin menolak mentor ini?')">
                                                     @csrf
-                                                    <button type="submit">REJECT</button>
+                                                    <button type="submit">Tolak</button>
                                                 </form>
                                             </td>
                                         </tr>
