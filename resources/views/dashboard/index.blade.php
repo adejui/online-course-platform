@@ -25,7 +25,7 @@
                             <div class="px-3 text-right basis-1/3">
                                 <div
                                     class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-blue-500 to-violet-500">
-                                    <i class="ni leading-none ni-money-coins text-lg relative top-3.5 text-white"></i>
+                                    <i class="ni leading-none ni ni-books text-lg relative top-3.5 text-white"></i>
                                 </div>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
                                     <div class="px-3 text-right basis-1/3">
                                         <div
                                             class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-orange-500 to-yellow-500">
-                                            <i class="ni leading-none ni-cart text-lg relative top-3.5 text-white"></i>
+                                            <i class="ni leading-none ni ni-cart text-lg relative top-3.5 text-white"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -87,7 +87,7 @@
                             <div class="px-3 text-right basis-1/3">
                                 <div
                                     class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-red-600 to-orange-600">
-                                    <i class="ni leading-none ni-world text-lg relative top-3.5 text-white"></i>
+                                    <i class="ni leading-none ni ni-money-coins text-lg relative top-3.5 text-white"></i>
                                 </div>
                             </div>
                         </div>
@@ -113,8 +113,8 @@
                                     </div>
                                     <div class="px-3 text-right basis-1/3">
                                         <div
-                                            class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-emerald-500 to-teal-400">
-                                            <i class="ni leading-none ni-paper-diploma text-lg relative top-3.5 text-white"></i>
+                                            class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-green-600 to-cyan-400">
+                                            <i class="ni leading-none ni ni-single-02 text-lg relative top-3.5 text-white"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -144,8 +144,9 @@
                                     </div>
                                     <div class="px-3 text-right basis-1/3">
                                         <div
-                                            class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-orange-500 to-yellow-500">
-                                            <i class="ni leading-none ni-cart text-lg relative top-3.5 text-white"></i>
+                                            class="inline-block w-12 h-12 text-center rounded-circle bg-gradient-to-tl from-emerald-500 to-teal-400">
+                                            <i
+                                                class="ni leading-none ni ni-bullet-list-67 text-lg relative top-3.5 text-white"></i>
                                         </div>
                                     </div>
                                 </div>

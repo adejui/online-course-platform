@@ -17,7 +17,8 @@
     <!-- Popper -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <!-- Main Styling -->
-    <link href="{{ asset('assets/css/argon-dashboard-tailwind.css') }}?v=1.0.1" rel="stylesheet" />
+    <link href="{{ asset('assets/css/argon-dashboard-tailwind.css?v=1.0.1') }}" rel="stylesheet" />
+
     <script src="//unpkg.com/alpinejs" defer></script>
     @vite('resources/css/app.css')
 
@@ -72,8 +73,7 @@
                                 href="{{ route('courses.index') }}">
                                 <div
                                     class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                                    <i
-                                        class="relative top-0 text-sm leading-normal text-orange-500 ni ni-calendar-grid-58"></i>
+                                    <i class="relative top-0 text-sm leading-normal text-orange-500 ni ni-books"></i>
                                 </div>
                                 <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Kelola Kelas</span>
                             </a>
@@ -88,7 +88,8 @@
                                 href="{{ route('categories.index') }}">
                                 <div
                                     class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center fill-current stroke-0 text-center xl:p-2.5">
-                                    <i class="relative top-0 text-sm leading-normal text-emerald-500 ni ni-credit-card"></i>
+                                    <i
+                                        class="relative top-0 text-sm leading-normal text-emerald-500 ni ni-bullet-list-67"></i>
                                 </div>
                                 <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Kelola Kategori</span>
                             </a>
@@ -103,7 +104,7 @@
                                 href="{{ route('mentors.index') }}">
                                 <div
                                     class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                                    <i class="relative top-0 text-sm leading-normal text-cyan-500 ni ni-app"></i>
+                                    <i class="relative top-0 text-sm leading-normal text-cyan-500 ni ni-single-02"></i>
                                 </div>
                                 <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Kelola Mentor</span>
                             </a>
@@ -118,7 +119,7 @@
                                 href="{{ route('mentor_courses.index') }}">
                                 <div
                                     class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                                    <i class="relative top-0 text-sm leading-normal text-cyan-500 ni ni-app"></i>
+                                    <i class="relative top-0 text-sm leading-normal text-cyan-500 ni ni-collection"></i>
                                 </div>
                                 <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Kelola Konten
                                     Mentor</span>
@@ -134,7 +135,7 @@
                                 href="{{ route('course_purchases.index') }}">
                                 <div
                                     class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                                    <i class="relative top-0 text-sm leading-normal text-red-600 ni ni-world-2"></i>
+                                    <i class="relative top-0 text-sm leading-normal text-red-600 ni ni-money-coins"></i>
                                 </div>
                                 <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Transaksi</span>
                             </a>
@@ -149,7 +150,7 @@
                                 href="{{ route('mentor.course_purchases.index') }}">
                                 <div
                                     class="mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-center stroke-0 text-center xl:p-2.5">
-                                    <i class="relative top-0 text-sm leading-normal text-red-600 ni ni-world-2"></i>
+                                    <i class="relative top-0 text-sm leading-normal text-red-600 ni ni-money-coins"></i>
                                 </div>
                                 <span class="ml-1 duration-300 opacity-100 pointer-events-none ease">Transaksi</span>
                             </a>
@@ -185,14 +186,21 @@
                     <ul class="flex items-center justify-end space-x-4">
 
                         <!-- Toggle Sidebar (Opsional) -->
-                        <li class="xl:hidden">
-                            <button id="iconNavbarSidenav" class="p-2 text-white">
-                                <div class="space-y-1">
-                                    <span class="block w-5 h-0.5 bg-white"></span>
-                                    <span class="block w-5 h-0.5 bg-white"></span>
-                                    <span class="block w-5 h-0.5 bg-white"></span>
+                        <li class="flex items-center pl-4 xl:hidden">
+                            <a href="javascript:;" class="block p-0 text-sm text-white transition-all ease-nav-brand"
+                                sidenav-trigger>
+                                <div class="w-4.5 overflow-hidden">
+                                    <i class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"></i>
+                                    <i class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"></i>
+                                    <i class="ease relative block h-0.5 rounded-sm bg-white transition-all"></i>
                                 </div>
-                            </button>
+                            </a>
+                        </li>
+                        <li class="flex items-center px-4">
+                            <a href="javascript:;" class="p-0 text-sm text-white transition-all ease-nav-brand">
+                                <i fixed-plugin-button-nav class="cursor-pointer fa fa-cog"></i>
+                                <!-- fixed-plugin-button-nav  -->
+                            </a>
                         </li>
 
                         <!-- User Dropdown -->
