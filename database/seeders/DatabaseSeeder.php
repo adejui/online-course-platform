@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
-            'avatar' => 'images/default-avatar.png',
+            'avatar' => 'avatars/default-avatar.png',
             'role' => 'admin',
             'password' => Hash::make('password'),
             'updated_at' => now(),

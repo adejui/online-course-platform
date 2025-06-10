@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CoursePurchaseController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\CourseVideoController;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\MentorCourseController;
 
 Route::middleware('guest')->group(function () {
@@ -17,9 +18,7 @@ Route::middleware('guest')->group(function () {
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
     Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
-    Route::get('/', function () {
-        return view('welcome');
-    })->name('home');
+    Route::get('/details/{course:slug}', [FrontController::class, 'details'])->name('front.details');
 });
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -58,9 +57,14 @@ Route::middleware(['auth', 'role:pelajar'])->group(function () {
     Route::post('/register/mentor', [RegisterController::class, 'storeMentor'])->name('register.mentor.store');
 });
 
+Route::middleware(['auth', 'role:admin,mentor'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/', function () {
+        return view('welcome');
+    })->name('home');
 });
