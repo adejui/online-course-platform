@@ -50,7 +50,7 @@
         <div class="video-player relative flex flex-nowrap gap-5">
             <div class="plyr__video-embed w-full overflow-hidden relative rounded-[20px]" id="player">
                 <iframe
-                    src="https://www.youtube.com/embed/{{ $course->trailer_path }}?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
+                    src="https://www.youtube.com/embed/{{ $video->video_path }}?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
                     allowfullscreen allowtransparency allow="autoplay"></iframe>
             </div>
             <div
