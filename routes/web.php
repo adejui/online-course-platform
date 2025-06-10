@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CoursePurchaseController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\CourseVideoController;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\MentorCourseController;
 
 Route::middleware('guest')->group(function () {
@@ -61,7 +62,12 @@ Route::middleware(['auth', 'role:admin,mentor'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
+    Route::get('/checkout/{course:slug}', [FrontController::class, 'checkout'])->name('front.checkout');
+
     Route::get('/', function () {
         return view('welcome');
     })->name('home');
 });
+Route::get('/details/{course:slug}', [FrontController::class, 'details'])->name('front.details');
+
+Route::get('/learning{course}/{courseVideoId}', [FrontController::class, 'learning'])->name('front.learning');
