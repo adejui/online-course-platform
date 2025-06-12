@@ -9,6 +9,10 @@ class FrontController extends Controller
 {
     public function details(Course $course)
     {
-        return view('front.details', compact('course'));
+        return view('front.details');
+    }
+    public function index()
+    {
+        return view('front.index');
     }
 }

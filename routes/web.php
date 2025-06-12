@@ -12,15 +12,14 @@ use App\Http\Controllers\CourseVideoController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\MentorCourseController;
 
+
+
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [LoginController::class, 'login'])->name('login.store');
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
     Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
-
-    Route::get('/details/{course:slug}', [FrontController::class, 'details'])->name('front.details');
 });
-
 Route::middleware(['auth', 'role:admin'])->group(function () {
     // Kelola Mentor
     Route::get('/mentors', [MentorController::class, 'index'])->name('mentors.index');
@@ -63,8 +62,6 @@ Route::middleware(['auth', 'role:admin,mentor'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-
-    Route::get('/', function () {
-        return view('welcome');
-    })->name('home');
 });
+Route::get('/index', [FrontController::class, 'index'])->name('front.index');
+Route::get('/details/{course:slug}', [FrontController::class, 'details'])->name('front.details');
