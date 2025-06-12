@@ -15,6 +15,11 @@ use App\Models\Discussion;
 
 class FrontController extends Controller
 {
+  public function index()
+    {
+        return view('front.index');
+  }
+  
     public function details(Course $course)
     {
         // $discussions = $course->discussions()->latest()->get();
@@ -111,5 +116,6 @@ class FrontController extends Controller
         ])->findOrFail($id);
 
         return response()->json($discussion);
+
     }
 }

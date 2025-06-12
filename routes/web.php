@@ -12,13 +12,14 @@ use App\Http\Controllers\CourseVideoController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\MentorCourseController;
 
+
+
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [LoginController::class, 'login'])->name('login.store');
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
     Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 });
-
 Route::middleware(['auth', 'role:admin'])->group(function () {
     // Kelola Mentor
     Route::get('/mentors', [MentorController::class, 'index'])->name('mentors.index');
@@ -72,6 +73,9 @@ Route::middleware(['auth'])->group(function () {
         return view('welcome');
     })->name('home');
 });
+
+Route::get('/index', [FrontController::class, 'index'])->name('front.index');
+
 Route::get('/details/{course:slug}', [FrontController::class, 'details'])->name('front.details');
 
 Route::get('/learning{course}/{courseVideoId}', [FrontController::class, 'learning'])->name('front.learning');
@@ -81,3 +85,4 @@ Route::post('/review', [FrontController::class, 'review'])->name('front.review')
 Route::post('/discussion', [FrontController::class, 'discussion'])->name('front.discussion');
 
 Route::get('/diskusi/{id}/detail', [FrontController::class, 'getDetail'])->name('discussion.getDetail');
+
