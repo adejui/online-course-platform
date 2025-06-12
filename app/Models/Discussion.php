@@ -27,4 +27,14 @@ class Discussion extends Model
     {
         return $this->belongsTo(Mentor::class);
     }
+
+    public function replies()
+    {
+        return $this->hasMany(Discussion::class, 'parent_id');
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo(Discussion::class, 'parent_id');
+    }
 }

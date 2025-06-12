@@ -10,7 +10,6 @@ use App\Http\Controllers\CoursePurchaseController;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\CourseVideoController;
 use App\Http\Controllers\FrontController;
-use App\Http\Controllers\FrontController;
 use App\Http\Controllers\MentorCourseController;
 
 Route::middleware('guest')->group(function () {
@@ -76,3 +75,9 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/details/{course:slug}', [FrontController::class, 'details'])->name('front.details');
 
 Route::get('/learning{course}/{courseVideoId}', [FrontController::class, 'learning'])->name('front.learning');
+
+Route::post('/review', [FrontController::class, 'review'])->name('front.review');
+
+Route::post('/discussion', [FrontController::class, 'discussion'])->name('front.discussion');
+
+Route::get('/diskusi/{id}/detail', [FrontController::class, 'getDetail'])->name('discussion.getDetail');
