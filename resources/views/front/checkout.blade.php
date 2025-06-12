@@ -25,23 +25,47 @@
                 <li>
                     <a href="pricing.html" class="font-semibold">kelas</a>
                 </li>
-                <li>
-                    <a href="" class="font-semibold">riwayat pembelian</a>
-                </li>
-                <li>
-                    <a href="" class="font-semibold">kelas</a>
-                </li>
+                @auth
+                    @if (auth()->user()->role === 'pelajar')
+                        <li>
+                            <a href="" class="font-semibold">Riwayat Pembelian</a>
+                        </li>
+                        <li>
+                            <a href="" class="font-semibold">Kelas Saya</a>
+                        </li>
+                    @endif
+                @endauth
             </ul>
-            <div class="flex gap-[10px] items-center">
-                <div class="flex flex-col items-end justify-center">
-                    <p class="font-semibold text-white">{{ Auth::user()->name }}</p>
-                    <!-- <p class="p-[2px_10px] rounded-full bg-[#FF6129] font-semibold text-xs text-white text-center">PRO</p> -->
+            @auth
+                <div class="flex gap-[10px] items-center">
+                    <div class="flex flex-col items-end justify-center">
+                        <p class="font-semibold text-white">Hi, {{ Auth::user()->name }}</p>
+                    </div>
+                    <div class="w-[56px] h-[56px] overflow-hidden rounded-full flex shrink-0">
+                        @if (auth()->user()->role === 'admin' || auth()->user()->role === 'mentor')
+                            <a href="{{ route('dashboard') }}">
+                                <img src="{{ Storage::url(Auth::user()->avatar) }}" class="w-full h-full object-cover"
+                                    alt="photo">
+                            </a>
+                        @elseif (auth()->user()->role === 'pelajar')
+                            <a href="{{ route('logout') }}">
+                                <img src="{{ Storage::url(Auth::user()->avatar) }}" class="w-full h-full object-cover"
+                                    alt="photo">
+                            </a>
+                        @endif
+                    </div>
                 </div>
-                <div class="w-[56px] h-[56px] overflow-hidden rounded-full flex shrink-0">
-                    <img src="{{ Storage::url(Auth::user()->avatar) }}" class="w-full h-full object-cover"
-                        alt="photo">
+            @endauth
+            @guest
+                <div class="flex gap-[10px] items-center">
+                    <a href="{{ route('register') }}"
+                        class="text-white font-semibold rounded-[30px] p-[16px_32px] ring-1 ring-white transition-all duration-300 hover:ring-2 hover:ring-[#FF6129]">Sign
+                        Up</a>
+                    <a href="{{ route('login') }}"
+                        class="text-white font-semibold rounded-[30px] p-[16px_32px] bg-[#FF6129] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF612980]">Sign
+                        In</a>
                 </div>
-            </div>
+            @endguest
         </nav>
         <div class="flex flex-col gap-[10px] items-center">
             <div
@@ -80,7 +104,8 @@
                     <div class="flex gap-3">
                     </div>
                 </div>
-                <p class="font-semibold text-[28px] leading-[42px]">Rp{{ $course->price }}</p>
+                <p class="font-semibold text-[28px] leading-[42px]">Rp{{ number_format($course->price, 0, ',', '.') }}
+                </p>
             </div>
             <form class="w-full flex flex-col bg-white rounded-2xl p-5 gap-5">
                 <p class="font-bold text-lg">Kirim Pembayaran</p>
@@ -88,8 +113,8 @@
                     <div class="flex items-center justify-between">
                         <div class="flex gap-3">
                             <div class="w-6 h-6 flex shrink-0">
-                                <img src="{{ asset('assets/icon/tick-circle.svg') }}" class="w-full h-full object-cover"
-                                    alt="icon">
+                                <img src="{{ asset('assets/icon/tick-circle.svg') }}"
+                                    class="w-full h-full object-cover" alt="icon">
                             </div>
                             <p class="text-[#475466]">Nama Rekening</p>
                         </div>

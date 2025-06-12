@@ -60,8 +60,29 @@ Route::middleware(['auth', 'role:admin,mentor'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
 
+Route::middleware(['auth', 'role:admin,mentor'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+    Route::get('/checkout/{course:slug}', [FrontController::class, 'checkout'])->name('front.checkout');
+
+    Route::get('/', function () {
+        return view('welcome');
+    })->name('home');
 });
+
 Route::get('/index', [FrontController::class, 'index'])->name('front.index');
+
 Route::get('/details/{course:slug}', [FrontController::class, 'details'])->name('front.details');
+
+Route::get('/learning{course}/{courseVideoId}', [FrontController::class, 'learning'])->name('front.learning');
+
+Route::post('/review', [FrontController::class, 'review'])->name('front.review');
+
+Route::post('/discussion', [FrontController::class, 'discussion'])->name('front.discussion');
+
+Route::get('/diskusi/{id}/detail', [FrontController::class, 'getDetail'])->name('discussion.getDetail');
+

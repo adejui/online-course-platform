@@ -111,4 +111,6 @@ class CoursePurchaseController extends Controller
             'total_penjualan_page' => $total_penjualan_page,
         ]);
     }
+
+    
 }
