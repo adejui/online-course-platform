@@ -98,21 +98,108 @@
                         <p class="font-semibold group-hover:text-white transition-all duration-300">Course Trailer</p>
                     </div>
                     @forelse ($course->courseVideos as $courseVideo)
-                        <div
-                            class="text-white group p-[12px_16px] flex items-center gap-[10px] bg-[#E9EFF3] rounded-full hover:bg-[#3525B3] transition-all duration-300">
-                            <div class="text-black group-hover:text-white transition-all duration-300">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M11.97 2C6.44997 2 1.96997 6.48 1.96997 12C1.96997 17.52 6.44997 22 11.97 22C17.49 22 21.97 17.52 21.97 12C21.97 6.48 17.5 2 11.97 2ZM14.97 14.23L12.07 15.9C11.71 16.11 11.31 16.21 10.92 16.21C10.52 16.21 10.13 16.11 9.76997 15.9C9.04997 15.48 8.61997 14.74 8.61997 13.9V10.55C8.61997 9.72 9.04997 8.97 9.76997 8.55C10.49 8.13 11.35 8.13 12.08 8.55L14.98 10.22C15.7 10.64 16.13 11.38 16.13 12.22C16.13 13.06 15.7 13.81 14.97 14.23Z"
-                                        fill="currentColor" />
-                                </svg>
+                        @auth
+                            @if (auth()->user()->role === 'pelajar' && $sudahBeli)
+                                <div
+                                    class="text-white group p-[12px_16px] flex items-center gap-[10px] bg-[#E9EFF3] rounded-full hover:bg-[#3525B3] transition-all duration-300">
+                                    <div class="text-black group-hover:text-white transition-all duration-300">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M11.97 2C6.44997 2 1.96997 6.48 1.96997 12C1.96997 17.52 6.44997 22 11.97 22C17.49 22 21.97 17.52 21.97 12C21.97 6.48 17.5 2 11.97 2ZM14.97 14.23L12.07 15.9C11.71 16.11 11.31 16.21 10.92 16.21C10.52 16.21 10.13 16.11 9.76997 15.9C9.04997 15.48 8.61997 14.74 8.61997 13.9V10.55C8.61997 9.72 9.04997 8.97 9.76997 8.55C10.49 8.13 11.35 8.13 12.08 8.55L14.98 10.22C15.7 10.64 16.13 11.38 16.13 12.22C16.13 13.06 15.7 13.81 14.97 14.23Z"
+                                                fill="currentColor" />
+                                        </svg>
+                                    </div>
+                                    <a
+                                        href="{{ route('front.learning', [$course, 'courseVideoId' => $courseVideo->id]) }}">
+                                        <p
+                                            class="text-black font-semibold group-hover:text-white transition-all duration-300">
+                                            {{ $courseVideo->name }}</p>
+                                    </a>
+
+                                </div>
+                            @else
+                                <div
+                                    class="text-white group p-[12px_16px] flex items-center gap-[10px] bg-[#E9EFF3] rounded-full hover:bg-[#3525B3] transition-all duration-300">
+                                    <div class="text-black group-hover:text-white transition-all duration-300">
+                                        <!-- Icon lock (bagus dan modern) -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24"
+                                            width="24" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 17a1 1 0 0 0 1-1v-2a1 1 0 1 0-2 0v2a1 1 0 0 0 1 1Zm6-7h-1V7a5 5 0 0 0-10 0v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2Zm-8-3a3 3 0 0 1 6 0v3H10V7Zm8 13H6v-8h12v8Z" />
+                                        </svg>
+                                    </div>
+                                    <a href="#buy-section">
+                                        <p
+                                            class="text-black font-semibold group-hover:text-white transition-all duration-300">
+                                            {{ $courseVideo->name }}
+                                        </p>
+                                    </a>
+                                </div>
+                            @endif
+                        @endauth
+
+                        @guest
+                            <div
+                                class="text-white group p-[12px_16px] flex items-center gap-[10px] bg-[#E9EFF3] rounded-full hover:bg-[#3525B3] transition-all duration-300">
+                                <div class="text-black group-hover:text-white transition-all duration-300">
+                                    <!-- Icon lock (bagus dan modern) -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24"
+                                        width="24" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17a1 1 0 0 0 1-1v-2a1 1 0 1 0-2 0v2a1 1 0 0 0 1 1Zm6-7h-1V7a5 5 0 0 0-10 0v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2Zm-8-3a3 3 0 0 1 6 0v3H10V7Zm8 13H6v-8h12v8Z" />
+                                    </svg>
+                                </div>
+                                <a href="{{ route('login') }}">
+                                    <p class="text-black font-semibold group-hover:text-white transition-all duration-300">
+                                        {{ $courseVideo->name }}
+                                    </p>
+                                </a>
                             </div>
-                            <a href="{{ route('front.learning', [$course, 'courseVideoId' => $courseVideo->id]) }}">
-                                <p class="text-black font-semibold group-hover:text-white transition-all duration-300">
-                                    {{ $courseVideo->name }}</p>
-                            </a>
-                        </div>
+                        @endguest
+
+
+                        {{-- @auth
+                            @if (auth()->user()->role === 'pelajar')
+                                <div
+                                    class="text-white group p-[12px_16px] flex items-center gap-[10px] bg-[#E9EFF3] rounded-full hover:bg-[#3525B3] transition-all duration-300">
+                                    <div class="text-black group-hover:text-white transition-all duration-300">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M11.97 2C6.44997 2 1.96997 6.48 1.96997 12C1.96997 17.52 6.44997 22 11.97 22C17.49 22 21.97 17.52 21.97 12C21.97 6.48 17.5 2 11.97 2ZM14.97 14.23L12.07 15.9C11.71 16.11 11.31 16.21 10.92 16.21C10.52 16.21 10.13 16.11 9.76997 15.9C9.04997 15.48 8.61997 14.74 8.61997 13.9V10.55C8.61997 9.72 9.04997 8.97 9.76997 8.55C10.49 8.13 11.35 8.13 12.08 8.55L14.98 10.22C15.7 10.64 16.13 11.38 16.13 12.22C16.13 13.06 15.7 13.81 14.97 14.23Z"
+                                                fill="currentColor" />
+                                        </svg>
+                                    </div>
+                                    <a
+                                        href="{{ route('front.learning', [$course, 'courseVideoId' => $courseVideo->id]) }}">
+                                        <p
+                                            class="text-black font-semibold group-hover:text-white transition-all duration-300">
+                                            {{ $courseVideo->name }}</p>
+                                    </a>
+
+                                </div>
+                            @endif
+                        @endauth
+
+                        @guest
+                            <div
+                                class="text-white group p-[12px_16px] flex items-center gap-[10px] bg-[#E9EFF3] rounded-full hover:bg-[#3525B3] transition-all duration-300">
+                                <div class="text-black group-hover:text-white transition-all duration-300">
+                                    <!-- Icon lock (bagus dan modern) -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24"
+                                        width="24" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 17a1 1 0 0 0 1-1v-2a1 1 0 1 0-2 0v2a1 1 0 0 0 1 1Zm6-7h-1V7a5 5 0 0 0-10 0v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2Zm-8-3a3 3 0 0 1 6 0v3H10V7Zm8 13H6v-8h12v8Z" />
+                                    </svg>
+                                </div>
+                                <a href="{{ route('login') }}">
+                                    <p class="text-black font-semibold group-hover:text-white transition-all duration-300">
+                                        {{ $courseVideo->name }}
+                                    </p>
+                                </a>
+                            </div>
+                        @endguest --}}
 
                     @empty
                         <p>Tidak Ada Video Materi</p>
@@ -145,10 +232,14 @@
                 onclick="openPage('About', this)" id="defaultOpen">Tentang</div>
             <div class="tablink font-semibold text-lg h-[47px] transition-all duration-300 cursor-pointer hover:text-[#FF6129]"
                 onclick="openPage('Reviews', this)">Ulasan</div>
-            <div class="tablink font-semibold text-lg h-[47px] transition-all duration-300 cursor-pointer hover:text-[#FF6129]"
-                onclick="openPage('Discussions', this)">Diskusi</div>
+            @auth
+                @if (auth()->user()->role === 'pelajar' && $sudahBeli)
+                    <div class="tablink font-semibold text-lg h-[47px] transition-all duration-300 cursor-pointer hover:text-[#FF6129]"
+                        onclick="openPage('Discussions', this)">Diskusi</div>
+                @endif
+            @endauth
         </div>
-        <div class="bg-[#F5F8FA] py-[50px]">
+        <div id="buy-section" class="bg-[#F5F8FA] py-[50px]">
             <div class="max-w-[1100px] w-full mx-auto flex flex-col gap-[70px]">
                 <div class="flex gap-[50px]">
                     <div class="tabs-container w-[700px] flex shrink-0">
@@ -178,12 +269,11 @@
                                 <!-- Judul -->
                                 <h2 class="text-2xl font-bold text-gray-800 mb-1">Pelajar Kami yang Puas</h2>
                                 <p class="text-sm text-gray-500 mb-6">
-                                    Review setelah bergabung di kelas Full-Stack Laravel 11 React TypeScript: Web Book
-                                    Home Service
+                                    Review setelah bergabung di kelas {{ $course->name }}
                                 </p>
 
                                 @auth
-                                    @if (auth()->user()->role === 'pelajar')
+                                    @if (auth()->user()->role === 'pelajar' && $sudahBeli)
                                         <form action="{{ route('front.review') }}" method="POST" class="p-4">
                                             @csrf
                                             <input type="hidden" name="course_id" value="{{ $course->id }}">

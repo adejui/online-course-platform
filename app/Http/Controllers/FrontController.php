@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreReviewRequest;
+use App\Models\CoursePurchase;
 use App\Models\Discussion;
 
 class FrontController extends Controller
@@ -24,14 +25,23 @@ class FrontController extends Controller
             ->latest()
             ->get();
 
+        $user = Auth::user();
+        $sudahBeli = false;
+
+        if ($user) {
+            $sudahBeli = CoursePurchase::where('user_id', $user->id)
+                ->where('course_id', $course->id)
+                ->whereIn('status', ['verified'])
+                ->exists();
+        }
+
+
         // $discussion = Discussion::with([
         //     'user',
         //     'replies.user'
         // ])->findOrFail($course->id);
 
-
-
-        return view('front.details', compact('course', 'previewReviews', 'allReviews', 'discussions'));
+        return view('front.details', compact('course', 'previewReviews', 'allReviews', 'discussions', 'sudahBeli'));
     }
 
     public function checkout(Course $course)
