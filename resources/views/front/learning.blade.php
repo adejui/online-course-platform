@@ -1,79 +1,5 @@
-<!doctype html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ asset('output.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet" />
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
-
-    {{-- @vite('resources/css/app.css') --}}
-    <script src="https://cdn.tailwindcss.com"></script>
-
-</head>
-
-<body class="text-black font-poppins pt-10 pb-[50px]">
-    <div style="background-image: url('{{ asset('assets/background/Hero-Banner.png') }}');" id="hero-section"
-        class="max-w-[1200px] mx-auto w-full h-[393px] flex flex-col gap-10 pb-[50px] bg-center bg-no-repeat bg-cover rounded-[32px] overflow-hidden absolute transform -translate-x-1/2 left-1/2">
-        <nav class="flex justify-between items-center pt-6 px-[50px]">
-            <a href="index.html">
-                <img src="{{ asset('assets/logo/logo.svg') }}" alt="logo">
-            </a>
-            <ul class="flex items-center gap-[30px] text-white">
-                <li>
-                    <a href="" class="font-semibold">Home</a>
-                </li>
-                <li>
-                    <a href="pricing.html" class="font-semibold">Kelas</a>
-                </li>
-                @auth
-                    @if (auth()->user()->role === 'pelajar')
-                        <li>
-                            <a href="" class="font-semibold">Riwayat Pembelian</a>
-                        </li>
-                        <li>
-                            <a href="" class="font-semibold">Kelas Saya</a>
-                        </li>
-                    @endif
-                @endauth
-            </ul>
-            @auth
-                <div class="flex gap-[10px] items-center">
-                    <div class="flex flex-col items-end justify-center">
-                        <p class="font-semibold text-white">Hi, {{ Auth::user()->name }}</p>
-                    </div>
-                    <div class="w-[56px] h-[56px] overflow-hidden rounded-full flex shrink-0">
-                        @if (auth()->user()->role === 'admin' || auth()->user()->role === 'mentor')
-                            <a href="{{ route('dashboard') }}">
-                                <img src="{{ Storage::url(Auth::user()->avatar) }}" class="w-full h-full object-cover"
-                                    alt="photo">
-                            </a>
-                        @elseif (auth()->user()->role === 'pelajar')
-                            <a href="{{ route('logout') }}">
-                                <img src="{{ Storage::url(Auth::user()->avatar) }}" class="w-full h-full object-cover"
-                                    alt="photo">
-                            </a>
-                        @endif
-                    </div>
-                </div>
-            @endauth
-            @guest
-                <div class="flex gap-[10px] items-center">
-                    <a href="{{ route('register') }}"
-                        class="text-white font-semibold rounded-[30px] p-[16px_32px] ring-1 ring-white transition-all duration-300 hover:ring-2 hover:ring-[#FF6129]">Sign
-                        Up</a>
-                    <a href="{{ route('login') }}"
-                        class="text-white font-semibold rounded-[30px] p-[16px_32px] bg-[#FF6129] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF612980]">Sign
-                        In</a>
-                </div>
-            @endguest
-        </nav>
-    </div>
+@extends('layouts.app')
+@section('content')
     <section id="video-content" class="max-w-[1100px] w-full mx-auto mt-[130px]">
         <div class="video-player relative flex flex-nowrap gap-5">
             <div class="plyr__video-embed w-full overflow-hidden relative rounded-[20px]" id="player">
@@ -150,12 +76,12 @@
         </div>
         <div
             class="max-w-[1100px] w-full mx-auto mt-10 tablink-container flex gap-6 px-4 sm:p-0 no-scrollbar overflow-x-scroll">
-            <div class="tablink font-semibold text-lg h-[47px] transition-all duration-300 cursor-pointer hover:text-[#FF6129]"
+            <div class="tablink font-semibold text-lg h-[47px] transition-all duration-300 cursor-pointer hover:text-[#4F46E5]"
                 onclick="openPage('About', this)" id="defaultOpen">Tentang</div>
-            <div class="tablink font-semibold text-lg h-[47px] transition-all duration-300 cursor-pointer hover:text-[#FF6129]"
+            <div class="tablink font-semibold text-lg h-[47px] transition-all duration-300 cursor-pointer hover:text-[#4F46E5]"
                 onclick="openPage('Reviews', this)">Ulasan</div>
-            <div class="tablink font-semibold text-lg h-[47px] transition-all duration-300 cursor-pointer hover:text-[#FF6129]"
-                onclick="openPage('Discussions', this)">diskusi</div>
+            <div class="tablink font-semibold text-lg h-[47px] transition-all duration-300 cursor-pointer hover:text-[#4F46E5]"
+                onclick="openPage('Discussions', this)">Diskusi</div>
         </div>
         <div class="bg-[#F5F8FA] py-[50px]">
             <div class="max-w-[1100px] w-full mx-auto flex flex-col gap-[70px]">
@@ -213,8 +139,7 @@
 
                                             <!-- Ulasan Teks -->
                                             <div class="mb-4">
-                                                <label class="block text-sm font-medium text-gray-700 mb-1"
-                                                    for="review">
+                                                <label class="block text-sm font-medium text-gray-700 mb-1" for="review">
                                                     Tulis Ulasan
                                                 </label>
                                                 <textarea id="review" name="review" rows="4"
@@ -224,7 +149,7 @@
 
                                             <!-- Tombol Submit -->
                                             <button type="submit"
-                                                class="bg-[#FF6129] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF612980] text-white text-sm px-4 py-2 rounded-full font-medium">
+                                                class="bg-[#4F46E5] transition-all duration-300 hover:shadow-[0_10px_20px_0_#4F46E5] text-white text-sm px-4 py-2 rounded-full font-medium">
                                                 Kirim Ulasan
                                             </button>
                                         </form>
@@ -252,7 +177,7 @@
                                     @if ($allReviews->count() > 4)
                                         <div class="text-center mt-6">
                                             <button id="toggleReviewBtn" onclick="toggleReviews()"
-                                                class="px-4 py-2 bg-[#FF6129] rounded-full text-white text-sm font-semibold hover:shadow-[0_10px_20px_0_#FF612980]">
+                                                class="px-4 py-2 bg-[#4F46E5] rounded-full text-white text-sm font-semibold hover:shadow-[0_10px_20px_0_#4F46E5]">
                                                 Lihat Semua Ulasan
                                             </button>
                                         </div>
@@ -310,8 +235,7 @@
                                         <input type="hidden" name="user_id" value="{{ auth()->id() }}">
 
                                         <div>
-                                            <label class="block text-sm font-medium text-gray-700 mb-1"
-                                                for="content">
+                                            <label class="block text-sm font-medium text-gray-700 mb-1" for="content">
                                                 Tulis Pertanyaan
                                             </label>
                                             <textarea id="content" name="content" rows="4"
@@ -354,7 +278,7 @@
                                 <div id="listDiskusi">
 
                                     <div class="flex justify-end">
-                                        <div class="tablink bg-[#FF6129] text-white font-semibold px-5 py-2 rounded-full text-lg h-[47px] transition-all duration-300 cursor-pointer"
+                                        <div class="tablink bg-[#4F46E5] text-white font-semibold px-5 py-2 rounded-full text-lg h-[47px] transition-all duration-300 cursor-pointer"
                                             onclick="toggleFormTanya()">
                                             Mulai Bertanya
                                         </div>
@@ -372,8 +296,7 @@
                                                     <p class="font-bold mb-2 text-xl text-gray-800">
                                                         {{ \Illuminate\Support\Str::words(strip_tags($discussion->content), 7, '...') }}
                                                     </p>
-                                                    <div
-                                                        class="flex items-center text-sm text-gray-500 space-x-4 mb-1">
+                                                    <div class="flex items-center text-sm text-gray-500 space-x-4 mb-1">
                                                         <span>{{ $discussion->replies_count }} balasan</span>
                                                         @php
                                                             $hasMentorReply = $discussion->replies->contains(
@@ -444,8 +367,7 @@
                                                 <div class="bg-white p-6 rounded-2xl shadow-sm mb-4">
                                                     <div class="flex items-start space-x-4">
                                                         <img src="{{ $reply->user->avatar_url ?? asset('images/default-avatar.png') }}"
-                                                            class="w-10 h-10 rounded-full object-cover"
-                                                            alt="avatar" />
+                                                            class="w-10 h-10 rounded-full object-cover" alt="avatar" />
                                                         <div class="flex-1">
                                                             <div class="flex items-center space-x-2">
                                                                 <p class="font-semibold text-blue-800">
@@ -474,10 +396,8 @@
                                                             </div>
 
                                                             <!-- Form Balas Jawaban -->
-                                                            <div id="reply-form-{{ $reply->id }}"
-                                                                class="hidden mt-4">
-                                                                <form
-                                                                    action="{{ route('discussion.reply', $reply->id) }}"
+                                                            <div id="reply-form-{{ $reply->id }}" class="hidden mt-4">
+                                                                <form action="{{ route('discussion.reply', $reply->id) }}"
                                                                     method="POST">
                                                                     @csrf
                                                                     <textarea name="content" rows="3" class="w-full border border-gray-300 rounded-lg p-2 text-sm"
@@ -598,7 +518,7 @@
 
 
                             <a href="{{ route('front.checkout', $course) }}"
-                                class="text-white text-center font-semibold rounded-[30px] p-[16px_32px] mt-5 bg-[#FF6129] transition-all duration-300 hover:shadow-[0_10px_20px_0_#FF612980] w-full">Beli
+                                class="text-white text-center font-semibold rounded-[30px] p-[16px_32px] mt-5 bg-indigo-600 hover:bg-indigo-700 transition-all duration-300 hover:shadow-[0_10px_20px_0_#4F46E5] w-full">Beli
                                 Kelas</a>
 
                         </div>
@@ -624,7 +544,7 @@
             </div>
             <div class="flex flex-col gap-[30px] w-[552px] shrink-0">
                 <div
-                    class="flex flex-col p-5 rounded-2xl bg-[#FFF8F4] has-[.hide]:bg-transparent border-t-4 border-[#FF6129] has-[.hide]:border-0 w-full">
+                    class="flex flex-col p-5 rounded-2xl bg-[#EEF2FF] has-[.hide]:bg-transparent border-t-4 border-[#4F46E5] has-[.hide]:border-0 w-full">
                     <button class="accordion-button flex justify-between gap-1 items-center"
                         data-accordion="accordion-faq-1">
                         <span class="font-semibold text-lg text-left">Apakah pemula bisa mengikuti kursus?</span>
@@ -639,7 +559,7 @@
                     </div>
                 </div>
                 <div
-                    class="flex flex-col p-5 rounded-2xl bg-[#FFF8F4] has-[.hide]:bg-transparent border-t-4 border-[#FF6129] has-[.hide]:border-0 w-full">
+                    class="flex flex-col p-5 rounded-2xl bg-[#EEF2FF] has-[.hide]:bg-transparent border-t-4 border-[#4F46E5] has-[.hide]:border-0 w-full">
                     <button class="accordion-button flex justify-between gap-1 items-center"
                         data-accordion="accordion-faq-2">
                         <span class="font-semibold text-lg text-left">Berapa lama waktu penerapannya?</span>
@@ -654,7 +574,7 @@
                     </div>
                 </div>
                 <div
-                    class="flex flex-col p-5 rounded-2xl bg-[#FFF8F4] has-[.hide]:bg-transparent border-t-4 border-[#FF6129] has-[.hide]:border-0 w-full">
+                    class="flex flex-col p-5 rounded-2xl bg-[#EEF2FF] has-[.hide]:bg-transparent border-t-4 border-[#4F46E5] has-[.hide]:border-0 w-full">
                     <button class="accordion-button flex justify-between gap-1 items-center"
                         data-accordion="accordion-faq-3">
                         <span class="font-semibold text-lg text-left">Apakah Anda menyediakan program jaminan kerja?
@@ -669,7 +589,7 @@
                     </div>
                 </div>
                 <div
-                    class="flex flex-col p-5 rounded-2xl bg-[#FFF8F4] has-[.hide]:bg-transparent border-t-4 border-[#FF6129] has-[.hide]:border-0 w-full">
+                    class="flex flex-col p-5 rounded-2xl bg-[#EEF2FF] has-[.hide]:bg-transparent border-t-4 border-[#4F46E5] has-[.hide]:border-0 w-full">
                     <button class="accordion-button flex justify-between gap-1 items-center"
                         data-accordion="accordion-faq-4">
                         <span class="font-semibold text-lg text-left">Bagaimana cara menerbitkan semua sertifikat
@@ -687,15 +607,4 @@
             </div>
         </div>
     </section>
-    <!-- JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
-    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-
-    <script src="{{ asset('main.js') }}"></script>
-</body>
-
-</html>
+@endsection

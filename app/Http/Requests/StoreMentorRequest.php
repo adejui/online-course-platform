@@ -23,6 +23,7 @@ class StoreMentorRequest extends FormRequest
     {
         return [
             'occupation' => 'required|string|max:100',
+            'phone_number' => 'required|digits_between:9,15|regex:/^[0-9]+$/',
             'cv_file' => 'required|file|mimes:pdf|max:4096',
             'bank_account_number' => 'required|string|max:100',
             'bank_name' => 'required|string|max:100',
@@ -36,6 +37,10 @@ class StoreMentorRequest extends FormRequest
             'occupation.required' => 'Pekerjaan wajib diisi.',
             'occupation.string' => 'Pekerjaan harus berupa teks.',
             'occupation.max' => 'Pekerjaan maksimal 100 karakter.',
+
+            'phone_number.required' => 'Nomor telepon wajib diisi.',
+            'phone_number.digits_between' => 'Nomor telepon harus terdiri dari 9 sampai 15 digit angka.',
+            'phone_number.regex' => 'Nomor telepon hanya boleh berisi angka tanpa spasi atau simbol.',
 
             'cv_file.required' => 'File CV wajib diunggah.',
             'cv_file.file' => 'File CV harus berupa file yang valid.',

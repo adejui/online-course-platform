@@ -84,6 +84,6 @@ class RegisterController extends Controller
             $mentor = Mentor::create($validated);
         });
 
-        return redirect()->route('home')->with('success', 'Pendaftaran mentor berhasil!');
+        return redirect()->route('front.index')->with('success', 'Pendaftaran mentor berhasil!');
     }
 }

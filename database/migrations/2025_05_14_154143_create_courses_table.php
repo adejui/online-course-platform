@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('trailer_path');
             $table->text('about');
             $table->string('thumbnail');
-            $table->string('price');
+            $table->decimal('price', 10, 2);
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
             $table->foreignId('mentor_id')->constrained()->onDelete('cascade');
             $table->softDeletes();

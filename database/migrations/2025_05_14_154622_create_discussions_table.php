@@ -16,7 +16,8 @@ return new class extends Migration
             $table->text('content');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('course_id')->constrained()->onDelete('cascade');
-            $table->foreignId('parent_id')->nullable()->constrained('discussions')->onDelete('cascade'); // Foreign key ke tabel discussions untuk reply
+            // $table->foreignId('parent_id')->nullable()->constrained('discussions')->onDelete('cascade'); // Foreign key ke tabel discussions untuk reply
+            $table->foreignId('parent_id')->nullable()->references('id')->on('discussions')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

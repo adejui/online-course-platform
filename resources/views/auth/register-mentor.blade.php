@@ -10,7 +10,7 @@
         <div class="w-full md:w-2/3 flex items-center justify-start pl-6">
             <div class="w-full max-w-md mx-16 px-6 py-12">
                 <!-- Form Login -->
-                <h2 class="text-3xl font-bold mb-1"2>Register as a Mentor</h2>
+                <h2 class="text-3xl font-bold mb-1"2>Daftar sebagai Mentor</h2>
 
                 <div class="items-center my-0">
                     <p class="text-sm text-gray-500 mb-4">Anda sudah terdaftar sebagai pelajar.</p>
@@ -20,12 +20,20 @@
 
                 <form action="{{ route('register.mentor.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Occupation</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Pekerjaan</label>
                     <input type="text" name="occupation" value="{{ old('occupation') }}"
                         class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-300 hover:shadow-md hover:shadow-pink-200 transition duration-200" />
                     <p
                         class="text-[11px] leading-tight min-h-[14px] mt-1 {{ $errors->has('occupation') ? 'text-red-500' : 'invisible' }}">
                         {{ $errors->first('occupation') ?: ' ' }}
+                    </p>
+
+                    <label class="block text-sm font-medium text-gray-700 mb-1">No Telp</label>
+                    <input type="text" name="phone_number" value="{{ old('phone_number') }}"
+                        class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-300 hover:shadow-md hover:shadow-pink-200 transition duration-200" />
+                    <p
+                        class="text-[11px] leading-tight min-h-[14px] mt-1 {{ $errors->has('phone_number') ? 'text-red-500' : 'invisible' }}">
+                        {{ $errors->first('phone_number') ?: ' ' }}
                     </p>
 
                     <label class="block mt-2 text-sm font-medium text-gray-700 mb-1">CV</label>
@@ -38,7 +46,7 @@
                         {{ $errors->first('cv_file') ?: 'PDF file up to 2MB.' }}
                     </p>
 
-                    <label class="block mt-2 text-sm font-medium text-gray-700 mb-1">Bank Account Number</label>
+                    <label class="block mt-2 text-sm font-medium text-gray-700 mb-1">Nomor Rekening Bank</label>
                     <input type="text" name="bank_account_number" value="{{ old('bank_account_number') }}"
                         class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm
            focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-300
@@ -48,7 +56,7 @@
                         {{ $errors->first('bank_account_number') ?: ' ' }}
                     </p>
 
-                    <label class="block mt-2 text-sm font-medium text-gray-700 mb-1">Bank Name</label>
+                    <label class="block mt-2 text-sm font-medium text-gray-700 mb-1">Nama Bank</label>
                     <input type="text" name="bank_name" value="{{ old('bank_name') }}"
                         class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm
            focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-300
@@ -58,7 +66,7 @@
                         {{ $errors->first('bank_name') ?: ' ' }}
                     </p>
 
-                    <label class="block mt-2 text-sm font-medium text-gray-700 mb-1">Account Holder Name</label>
+                    <label class="block mt-2 text-sm font-medium text-gray-700 mb-1">Nama Pemilik Rekening</label>
                     <input type="text" name="account_holder_name" value="{{ old('account_holder_name') }}"
                         class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm
            focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-300
@@ -70,7 +78,7 @@
 
 
                     <div class="flex justify-between gap-4 mt-2">
-                        <a href="{{ route('home') }}"
+                        <a href="{{ route('front.index') }}"
                             class="w-1/2 bg-white text-black border border-black py-2 rounded-lg font-semibold hover:bg-gray-100 text-center">
                             Batal
                         </a>

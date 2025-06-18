@@ -2,24 +2,78 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreDiscussionRequest;
 use App\Models\Course;
+use App\Models\Category;
+use App\Models\Discussion;
 use App\Models\CourseReview;
 use Illuminate\Http\Request;
+use App\Models\CoursePurchase;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreReviewRequest;
-use App\Models\CoursePurchase;
-use App\Models\Discussion;
+use App\Http\Requests\StoreDiscussionRequest;
 
 class FrontController extends Controller
 {
-  public function index()
+    public function index()
     {
-        return view('front.index');
-  }
-  
+        $courses = Course::with(['category', 'mentor'])->orderByDesc('id')->get();
+
+        $categories = Category::all();
+
+        return view('front.index', compact('courses', 'categories'));
+    }
+
+    public function category(Category $category)
+    {
+        // $courses = $category->courses()->get();
+        $courses = $category->courses()
+            ->with('coursePurchases')
+            ->paginate(12);
+
+        $userId = auth()->id();
+
+
+        return view('front.category', compact('courses', 'category', 'userId'));
+    }
+
+    public function catalog()
+    {
+        // $courses = Course::paginate(12);
+        // $courses = Course::with('coursePurchases')->inRandomOrder()->paginate(12);
+        $courses = Course::with('coursePurchases')->paginate(12);
+        $userId = auth()->id();
+
+        return view('front.catalog', compact('courses', 'userId'));
+    }
+
+    public function my_course()
+    {
+        $user = Auth::user();
+
+        // Ambil semua course_id dari pembelian user
+        $purchasedCourseIds = $user->coursePurchases()->pluck('course_id');
+
+        // Ambil semua data course yang dibeli
+        $courses = Course::whereIn('id', $purchasedCourseIds)->paginate(9);
+
+        return view('front.mycourse', compact('courses'));
+    }
+
+    public function my_transaction()
+    {
+        $user = Auth::user();
+
+        // Ambil semua data pembelian kursus user + relasi ke Course
+        $purchases = $user->coursePurchases()
+            ->with('course') // eager loading agar ambil data kursus juga
+            ->orderByDesc('created_at')
+            ->paginate(5);
+
+        return view('front.mytransaction', compact('purchases'));
+    }
+
     public function details(Course $course)
     {
         // $discussions = $course->discussions()->latest()->get();
@@ -116,6 +170,5 @@ class FrontController extends Controller
         ])->findOrFail($id);
 
         return response()->json($discussion);
-
     }
 }

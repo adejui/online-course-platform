@@ -31,7 +31,7 @@ class LoginController extends Controller
             } elseif ($user->role === 'mentor') {
                 return redirect()->route('dashboard');
             } else {
-                return redirect()->route('home');
+                return redirect()->route('front.index');
             }
         } else {
             return redirect()->route('login')->with('failed', 'Email atau password salah.');
@@ -46,6 +46,6 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect()->route('home');
+        return redirect()->route('front.index');
     }
 }

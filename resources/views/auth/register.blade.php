@@ -19,7 +19,7 @@
 
                 <form method="post" action="{{ route('register.store') }}" enctype="multipart/form-data">
                     @csrf
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Nama</label>
                     <input type="text" name="name" value="{{ old('name') }}"
                         class="w-full border border-pink-200 focus:border-pink-500 rounded-lg px-3 py-3 text-sm focus:outline-none">
                     <p
@@ -57,12 +57,11 @@
                     </p>
 
                     <button type="submit"
-                        class="w-full bg-black text-white py-3 rounded-lg font-semibold hover:bg-gray-900">Create
-                        Account</button>
+                        class="w-full bg-black text-white py-3 rounded-lg font-semibold hover:bg-gray-900">Daftar</button>
                 </form>
 
                 <p class="mt-4 text-sm text-center text-gray-600">
-                    Already have an account? <a href="{{ route('login') }}" class="underline">Sign In</a>
+                    Sudah punya akun? <a href="{{ route('login') }}" class="underline">Login</a>
                 </p>
             </div>
         </div>

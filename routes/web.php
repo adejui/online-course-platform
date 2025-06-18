@@ -54,6 +54,10 @@ Route::middleware(['auth', 'role:pelajar'])->group(function () {
     Route::get('/register/success', [RegisterController::class, 'registrationSuccess'])->name('register.success');
     Route::get('/register/mentor', [RegisterController::class, 'registerMentor'])->name('register.mentor');
     Route::post('/register/mentor', [RegisterController::class, 'storeMentor'])->name('register.mentor.store');
+
+    Route::get('/mycourse', [FrontController::class, 'my_course'])->name('front.my_course');
+
+    Route::get('/mytransaction', [FrontController::class, 'my_transaction'])->name('front.my_transaction');
 });
 
 Route::middleware(['auth', 'role:admin,mentor'])->group(function () {
@@ -68,15 +72,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
     Route::get('/checkout/{course:slug}', [FrontController::class, 'checkout'])->name('front.checkout');
-
-    Route::get('/', function () {
-        return view('welcome');
-    })->name('home');
 });
 
-Route::get('/index', [FrontController::class, 'index'])->name('front.index');
+Route::get('/', [FrontController::class, 'index'])->name('front.index');
 
 Route::get('/details/{course:slug}', [FrontController::class, 'details'])->name('front.details');
+
+Route::get('/category/{category:slug}', [FrontController::class, 'category'])->name('front.category');
+
+Route::get('/catalog', [FrontController::class, 'catalog'])->name('front.catalog');
 
 Route::get('/learning{course}/{courseVideoId}', [FrontController::class, 'learning'])->name('front.learning');
 
@@ -85,4 +89,3 @@ Route::post('/review', [FrontController::class, 'review'])->name('front.review')
 Route::post('/discussion', [FrontController::class, 'discussion'])->name('front.discussion');
 
 Route::get('/diskusi/{id}/detail', [FrontController::class, 'getDetail'])->name('discussion.getDetail');
-

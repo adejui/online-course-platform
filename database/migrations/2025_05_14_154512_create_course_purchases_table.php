@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('course_purchases', function (Blueprint $table) {
             $table->id();
-            $table->string('payment_proof');
+            $table->string('purchase_code')->unique();
             $table->dateTime('purchase_date');
             $table->integer('total_paid');
             $table->integer('mentor_commission');
-            $table->enum('status', ['pending', 'paid', 'verified'])->default('pending');
+            $table->integer('admin_commission');
+            $table->enum('status', ['pending', 'verified'])->default('pending');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('mentor_id')->constrained()->onDelete('cascade');
+            // $table->foreignId('mentor_id')->constrained()->onDelete('cascade');
             $table->foreignId('course_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

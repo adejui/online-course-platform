@@ -10,10 +10,10 @@
         <div class="w-full md:w-2/3 flex items-center justify-start pl-6">
             <div class="w-full max-w-md mx-16 px-6 py-12">
                 <!-- Form Login -->
-                <h2 class="text-2xl font-bold mb-6">Sign in to QWERTY</h2>
+                <h2 class="text-2xl font-bold mb-6">LOGIN</h2>
 
                 <!-- Sign in with Google -->
-                <button
+                {{-- <button
                     class="w-full border border-gray-300 py-3 px-4 rounded-lg flex items-center justify-center gap-2 mb-4 hover:bg-gray-100">
                     <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" class="w-5 h-5">
                     <span>Sign in with Google</span>
@@ -23,7 +23,7 @@
                     <hr class="flex-grow border-t border-gray-300">
                     <span class="mx-2 text-sm text-gray-500">or sign in with email</span>
                     <hr class="flex-grow border-t border-gray-300">
-                </div>
+                </div> --}}
 
                 @if (session('failed'))
                     <div class="text-red-600 text-center text-base py-2 px-4">
@@ -56,12 +56,11 @@
 
 
                     <button type="submit"
-                        class="w-full bg-black text-white py-3 mt-6 rounded-lg font-semibold hover:bg-gray-900">Sign
-                        In</button>
+                        class="w-full bg-black text-white py-3 mt-6 rounded-lg font-semibold hover:bg-gray-900">Login</button>
                 </form>
 
                 <p class="mt-4 text-sm text-center text-gray-600">
-                    Don't have an account? <a href="{{ route('register') }}" class="underline">Sign up</a>
+                    Belum punya akun? <a href="{{ route('register') }}" class="underline">Daftar</a>
                 </p>
             </div>
         </div>

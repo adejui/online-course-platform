@@ -19,7 +19,7 @@
                 <form class="text-center">
                     <p class="text-md text-gray-500 mb-4">Ingin jadi mentor dan berbagi ilmu?</p>
                     <div class="flex justify-between gap-4">
-                        <a href="{{ route('home') }}"
+                        <a href="{{ route('front.index') }}"
                             class="w-1/2 bg-white text-black border border-black py-2 rounded-lg font-semibold hover:bg-gray-100 text-center">
                             Lewati
                         </a>
