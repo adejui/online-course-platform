@@ -1,16 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\MentorController;
+use App\Http\Controllers\CoursesController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CourseVideoController;
+use App\Http\Controllers\MentorCourseController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CoursePurchaseController;
-use App\Http\Controllers\CoursesController;
-use App\Http\Controllers\CourseVideoController;
-use App\Http\Controllers\FrontController;
-use App\Http\Controllers\MentorCourseController;
 
 
 
@@ -71,7 +72,7 @@ Route::middleware(['auth', 'role:admin,mentor'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-    Route::get('/checkout/{course:slug}', [FrontController::class, 'checkout'])->name('front.checkout');
+    // Route::get('/checkout/{course:slug}', [FrontController::class, 'checkout'])->name('front.checkout');
 });
 
 Route::get('/', [FrontController::class, 'index'])->name('front.index');
@@ -89,3 +90,15 @@ Route::post('/review', [FrontController::class, 'review'])->name('front.review')
 Route::post('/discussion', [FrontController::class, 'discussion'])->name('front.discussion');
 
 Route::get('/diskusi/{id}/detail', [FrontController::class, 'getDetail'])->name('discussion.getDetail');
+
+
+// Route::middleware(['auth'])->group(function () {
+Route::get('/checkout/{course}', [PaymentController::class, 'checkout'])->name('front.checkout');
+Route::post('/create-transaction', [PaymentController::class, 'createTransaction']);
+// });
+
+// Callback Midtrans
+Route::post('/midtrans/callback', [PaymentController::class, 'callback']);
+Route::get('/midtrans/thanks', [PaymentController::class, 'thanks'])->name('payment.success');
+
+Route::get('/invoice/{purchaseCode}', [PaymentController::class, 'showInvoice'])->name('invoice.show');

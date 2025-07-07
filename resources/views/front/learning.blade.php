@@ -83,7 +83,7 @@
             <div class="tablink font-semibold text-lg h-[47px] transition-all duration-300 cursor-pointer hover:text-[#4F46E5]"
                 onclick="openPage('Discussions', this)">Diskusi</div>
         </div>
-        <div class="bg-[#F5F8FA] py-[50px]">
+        <div class="bg-[#ebedf0] py-[50px]">
             <div class="max-w-[1100px] w-full mx-auto flex flex-col gap-[70px]">
                 <div class="flex gap-[50px]">
                     <div class="tabs-container w-[700px] flex shrink-0">
@@ -97,7 +97,8 @@
                                     @forelse ($course->courseKeypoints as $keyPoint)
                                         <div class="benefit-card flex items-center gap-3">
                                             <div class="w-6 h-6 flex shrink-0">
-                                                <img src="{{ asset('assets/icon/tick-circle.svg') }}" alt="icon">
+                                                <img src="{{ asset('assets/icon/icons8-approval-24.png') }}"
+                                                    alt="icon">
                                             </div>
                                             <p class="font-medium leading-[30px]">{{ $keyPoint->name }}</p>
                                         </div>
@@ -323,39 +324,41 @@
                                 </div>
 
                                 <!-- DETAIL DISKUSI KOSONG -->
-                                <div id="detailDiscussion" class="hidden">
+                                {{-- <div id="detailDiscussion" class="hidden">
                                     <div class="max-w-3xl mx-auto mt-10 space-y-6 text-gray-800">
 
                                         <!-- Pertanyaan -->
-                                        <div class="bg-white p-6 rounded-2xl shadow-sm">
-                                            <div class="flex items-center space-x-4">
-                                                <img src="{{ asset('images/default-avatar.png') }}" alt="User Avatar"
-                                                    class="w-10 h-10 rounded-full object-cover" />
-                                                <div>
-                                                    <p class="font-bold text-lg">
-                                                        {{ $discussion->user->name ?? 'Not found' }}</p>
+                                        @if ($discussion)
+                                            <div class="bg-white p-6 rounded-2xl shadow-sm">
+                                                <div class="flex items-center space-x-4">
+                                                    <img src="{{ asset('images/default-avatar.png') }}" alt="User Avatar"
+                                                        class="w-10 h-10 rounded-full object-cover" />
+                                                    <div>
+                                                        <p class="font-bold text-lg">
+                                                            {{ $discussion->user->name ?? 'Not found' }}</p>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="flex items-center space-x-4 mt-3 text-sm">
-                                                <div class="flex items-center space-x-1 text-blue-600">
-                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor"
-                                                        stroke-width="2" viewBox="0 0 24 24">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            d="M17 8h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h2" />
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            d="M12 15v-6M9 12h6" />
-                                                    </svg>
-                                                    <span>replied</span>
+                                                <div class="flex items-center space-x-4 mt-3 text-sm">
+                                                    <div class="flex items-center space-x-1 text-blue-600">
+                                                        <svg class="w-4 h-4" fill="none" stroke="currentColor"
+                                                            stroke-width="2" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M17 8h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h2" />
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M12 15v-6M9 12h6" />
+                                                        </svg>
+                                                        <span>replied</span>
+                                                    </div>
+                                                    <div class="text-green-600 font-semibold">✅ Dijawab mentor</div>
                                                 </div>
-                                                <div class="text-green-600 font-semibold">✅ Dijawab mentor</div>
+
+                                                <p class="text-sm text-gray-500 mt-2">Ditanya pada
+                                                    {{ $discussion->created_at->translatedFormat('d F Y \j\a\m H:i') }}</p>
+
+                                                <p class="mt-4">{{ $discussion->content }}</p>
                                             </div>
-
-                                            <p class="text-sm text-gray-500 mt-2">Ditanya pada
-                                                {{ $discussion->created_at->translatedFormat('d F Y \j\a\m H:i') }}</p>
-
-                                            <p class="mt-4">{{ $discussion->content }}</p>
-                                        </div>
+                                        @endif
 
                                         <!-- Jawaban -->
                                         <div>
@@ -424,7 +427,7 @@
                                             </button>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <script>
                                     function toggleReplyForm(replyId) {
@@ -530,13 +533,13 @@
     <section id="FAQ" class="max-w-[1200px] mx-auto flex flex-col py-[70px] px-[100px]">
         <div class="flex justify-between items-center">
             <div class="flex flex-col gap-[30px]">
-                <div
+                {{-- <div
                     class="gradient-badge w-fit p-[8px_16px] rounded-full border border-[#FED6AD] flex items-center gap-[6px]">
                     <div>
                         <img src="{{ asset('assets/icon/medal-star.svg') }}" alt="icon">
                     </div>
                     <p class="font-medium text-sm text-[#FF6129]">Kembangkan Karir Anda</p>
-                </div>
+                </div> --}}
                 <div class="flex flex-col">
                     <h2 class="font-bold text-[36px] leading-[52px]">Dapatkan Jawaban Anda</h2>
                     <p class="text-lg text-[#475466]">Saatnya meningkatkan keterampilan tanpa batas!</p>

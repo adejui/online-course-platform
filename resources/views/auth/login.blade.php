@@ -6,14 +6,23 @@
         </div>
 
 
+
         <!-- Right Side -->
         <div class="w-full md:w-2/3 flex items-center justify-start pl-6">
             <div class="w-full max-w-md mx-16 px-6 py-12">
+                <a href="{{ route('front.index') }}" class="flex mb-28 items-center text-black hover:text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                    Kembali
+                </a>
+
                 <!-- Form Login -->
                 <h2 class="text-2xl font-bold mb-6">LOGIN</h2>
 
                 <!-- Sign in with Google -->
-                {{-- <button
+                <button
                     class="w-full border border-gray-300 py-3 px-4 rounded-lg flex items-center justify-center gap-2 mb-4 hover:bg-gray-100">
                     <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" class="w-5 h-5">
                     <span>Sign in with Google</span>
@@ -23,7 +32,7 @@
                     <hr class="flex-grow border-t border-gray-300">
                     <span class="mx-2 text-sm text-gray-500">or sign in with email</span>
                     <hr class="flex-grow border-t border-gray-300">
-                </div> --}}
+                </div>
 
                 @if (session('failed'))
                     <div class="text-red-600 text-center text-base py-2 px-4">
@@ -35,7 +44,7 @@
                 <form action="{{ route('login.store') }}" method="post">
                     @csrf
                     <label class="block mb-2 text-sm font-medium text-gray-700">Email</label>
-                    <input type="text" name="email" value="{{ old('email') }}"
+                    <input type="email" name="email" value="{{ old('email') }}"
                         class="w-full border border-gray-300 rounded-lg px-4 py-3 mb-0 text-sm
            focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-300
            hover:shadow-md hover:shadow-pink-200 transition duration-200" />

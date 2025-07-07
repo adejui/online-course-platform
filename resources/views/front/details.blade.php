@@ -25,6 +25,7 @@
                     </div>
                     @forelse ($course->courseVideos as $courseVideo)
                         @auth
+                            {{-- @if ($userId && $course->coursePurchases->where('user_id', $userId)->isNotEmpty()) --}}
                             @if (auth()->user()->role === 'pelajar' && $sudahBeli)
                                 <div
                                     class="text-white group p-[12px_16px] flex items-center gap-[10px] bg-[#E9EFF3] rounded-full hover:bg-[#3525B3] transition-all duration-300">
@@ -118,7 +119,7 @@
                 @endif
             @endauth
         </div>
-        <div id="buy-section" class="bg-[#F5F8FA] py-[50px]">
+        <div id="buy-section" class="bg-[#E1E7EC] py-[50px]">
             <div class="max-w-[1100px] w-full mx-auto flex flex-col gap-[70px]">
                 <div class="flex gap-[50px]">
                     <div class="tabs-container w-[700px] flex shrink-0">

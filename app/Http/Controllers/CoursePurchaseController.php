@@ -20,7 +20,7 @@ class CoursePurchaseController extends Controller
             ->withCount('coursePurchases as total_pembelian')   // hitung jumlah pembelian
             ->withSum('coursePurchases as total_penjualan', 'total_paid')  // jumlah total_paid
             ->paginate(10);
-
+        
         $data = [
             'title' => 'Transaksi',
             'mentors' => $mentors,
@@ -111,6 +111,4 @@ class CoursePurchaseController extends Controller
             'total_penjualan_page' => $total_penjualan_page,
         ]);
     }
-
-    
 }

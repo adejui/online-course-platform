@@ -24,7 +24,7 @@
 
     @if (request()->routeIs('front.index'))
         <div id="hero-section"
-            class="max-w-[1450px] mx-auto w-full flex flex-col gap-10 pb-[55px] bg-center bg-no-repeat bg-cover rounded-[32px]"
+            class="max-w-[1450px] mx-auto w-full flex flex-col gap-10 pb-[105px] bg-center bg-no-repeat bg-cover rounded-[32px]"
             style="{{ $heroStyle }}">
         @elseif (request()->routeIs('front.checkout'))
             <div id="checkout-section"
@@ -33,7 +33,8 @@
             @elseif (request()->routeIs('front.catalog') ||
                     request()->routeIs('front.category') ||
                     request()->routeIs('front.my_transaction') ||
-                    request()->routeIs('front.my_course'))
+                    request()->routeIs('front.my_course') ||
+                    request()->routeIs('payment.success'))
                 <div id="hero-section"
                     class="max-w-[1400px] mx-auto w-full flex flex-col gap-10 bg-center bg-no-repeat bg-cover rounded-[32px]"
                     style="{{ $heroStyle }}">
@@ -45,7 +46,7 @@
 
     <nav class="flex justify-between items-center py-6 px-[50px]">
         <a href="">
-            <img src="{{ asset('assets/logo/logo.svg') }}" alt="logo">
+            <img src="{{ asset('assets/logo/logo2.png') }}" class="w-52" alt="logo">
         </a>
         <ul class="flex items-center gap-[30px] text-white">
             <li>
@@ -151,6 +152,8 @@
         </div>
     @elseif (request()->routeIs('front.details'))
         </div>
+    @elseif (request()->routeIs('payment.success'))
+        </div>
     @elseif (request()->routeIs('front.learning'))
         </div>
     @elseif (request()->routeIs('front.my_transaction'))
@@ -163,6 +166,8 @@
 
 
     @yield('content')
+
+    @yield('scripts')
 
     {{-- <footer
         class="max-w-[1200px] mx-auto flex flex-col pt-[70px] pb-[50px] px-[100px] gap-[50px] bg-[#F5F8FA] rounded-[32px]">
@@ -233,15 +238,15 @@
         </div>
     </footer> --}}
 
-    <!-- JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-    <script src="{{ asset('main.js') }}"></script>
+        <!-- JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+        <script src="{{ asset('main.js') }}"></script>
 
 
-</body>
+    </body>
 
-</html>
+    </html>

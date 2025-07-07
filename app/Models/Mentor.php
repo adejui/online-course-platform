@@ -24,7 +24,14 @@ class Mentor extends Model
 
     public function coursePurchases()
     {
-        return $this->hasMany(CoursePurchase::class);
+        return $this->hasManyThrough(
+            CoursePurchase::class,
+            Course::class,
+            'mentor_id',         // Foreign key on courses table
+            'course_id',         // Foreign key on course_purchases table
+            'id',                // Local key on mentors table
+            'id'                 // Local key on courses table
+        );
     }
 
     public function discussions()

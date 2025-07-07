@@ -64,7 +64,7 @@
                                                             class="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-in-out rounded-xl"
                                                             alt="user1" />
                                                     </div>
-                                                    <div class="flex flex-col justify-center">
+                                                    <div class="flex flex-col justify-center lg:max-w-xl overflow-auto">
                                                         <h6 class="mb-0 text-lg leading-normal dark:text-white">
                                                             {{ $course->name }}
                                                         </h6>

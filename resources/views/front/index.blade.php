@@ -1,16 +1,18 @@
 @extends('layouts.app')
 @section('content')
     <div class="flex flex-col items-center gap-[30px]">
-        <div class="w-fit flex items-center gap-3 p-2 pr-6 rounded-full bg-[#FFFFFF1F] border border-[#3477FF24]">
+        {{-- <div class="w-fit flex items-center gap-3 p-2 pr-6 rounded-full bg-[#FFFFFF1F] border border-[#3477FF24]">
             <div class="w-[100px] h-[48px] flex shrink-0">
                 <img src="{{ asset('assets/icon/avatar-group.png') }}" class="object-contain" alt="icon">
             </div>
             <p class="font-semibold text-sm text-white">Join 3 million users</p>
-        </div>
+        </div> --}}
         <div class="flex flex-col gap-[10px]">
-            <h1 class="font-semibold text-[70px] leading-[82px] text-center gradient-text-hero">Wujudkan Karier Impianmu
+            <h1 class="font-semibold text-[70px] leading-[82px] pb-6 text-center gradient-text-hero">Wujudkan Karier
+                Impianmu
             </h1>
-            <p class="text-center text-xl leading-[36px] text-[#F5F8FA]">Ikuti kelas online berkualitas untuk kuasai skill
+            <p class="text-center text-xl leading-[36px] text-[#F5F8FA] pb-10">Ikuti kelas online berkualitas untuk kuasai
+                skill
                 baru dan <br>
                 siapkan portofolio yang memukau.</p>
         </div>
@@ -23,7 +25,7 @@
                 Karier</a>
         </div>
     </div>
-    <div class="flex gap-[70px] items-center justify-center">
+    {{-- <div class="flex gap-[70px] items-center justify-center">
         <div>
             <img src="{{ asset('assets/icon/logo-55.svg') }}" alt="icon">
         </div>
@@ -39,7 +41,7 @@
         <div>
             <img src="{{ asset('assets/icon/logo-52.svg') }}" alt="icon">
         </div>
-    </div>
+    </div> --}}
     </div>
     <section id="category-section" class="max-w-[1200px] mx-auto flex flex-col p-[70px_50px] gap-[30px]">
         <div class="flex flex-col gap-[30px]">
@@ -71,7 +73,7 @@
 
     </section>
     <section id="Popular-Courses"
-        class="max-w-[1200px] mx-auto flex flex-col p-[70px_82px_0px] gap-[30px] bg-[#F5F8FA] rounded-[32px]">
+        class="max-w-[1200px] mx-auto flex flex-col p-[70px_82px_0px] gap-[30px] bg-[#ebedf0] rounded-[32px]">
         <div class="flex flex-col gap-[30px] items-center text-center">
             {{-- <div class="gradient-badge w-fit p-[8px_16px] rounded-full border border-[#FED6AD] flex items-center gap-[6px]">
                 <div>

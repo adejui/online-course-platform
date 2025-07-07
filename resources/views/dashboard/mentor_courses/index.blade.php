@@ -60,7 +60,8 @@
                                                             alt="user1" />
                                                     </div>
                                                     <div class="flex flex-col justify-center">
-                                                        <h6 class="mb-0 text-lg leading-normal dark:text-white">
+                                                        <h6
+                                                            class="mb-0 text-lg leading-normal overflow-auto lg:max-w-xl dark:text-white">
                                                             {{ $course->name }}
                                                         </h6>
                                                         <p

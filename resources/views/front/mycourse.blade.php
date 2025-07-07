@@ -54,13 +54,13 @@
     <section id="Zero-to-Success"
         class="max-w-[1200px] mx-auto flex flex-col py-[70px] px-[50px] gap-[30px] bg-[#F5F8FA] rounded-[32px]">
         <div class="flex flex-col gap-[30px] items-center text-center">
-            <div
+            {{-- <div
                 class="gradient-badgee w-fit p-[8px_16px] rounded-full border border-[#D6D8FF] flex items-center gap-[6px]">
                 <div>
                     <img src="{{ asset('assets//icon/medal-star.svg') }}" alt="icon">
                 </div>
                 <p class="font-medium text-sm text-[#4F46E5]">Sukses Dimulai dari Langkah Pertama</p>
-            </div>
+            </div> --}}
             <div class="flex flex-col">
                 <h2 class="font-bold text-[40px] leading-[60px]">Pelajar Bahagia & Sukses</h2>
                 <p class="text-[#6D7786] text-lg -tracking-[2%]">Kuasai skill baru dan raih karier bergaji tinggi kini
@@ -87,19 +87,19 @@
                             thank you!</p>
                         <div class="flex gap-[2px]">
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                         </div>
                     </div>
@@ -115,19 +115,19 @@
                             thank you!</p>
                         <div class="flex gap-[2px]">
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                         </div>
                     </div>
@@ -143,19 +143,19 @@
                             thank you!</p>
                         <div class="flex gap-[2px]">
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                         </div>
                     </div>
@@ -171,19 +171,19 @@
                             thank you!</p>
                         <div class="flex gap-[2px]">
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                         </div>
                     </div>
@@ -202,19 +202,19 @@
                             thank you!</p>
                         <div class="flex gap-[2px]">
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                         </div>
                     </div>
@@ -230,19 +230,19 @@
                             thank you!</p>
                         <div class="flex gap-[2px]">
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                         </div>
                     </div>
@@ -258,19 +258,19 @@
                             thank you!</p>
                         <div class="flex gap-[2px]">
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                         </div>
                     </div>
@@ -286,19 +286,19 @@
                             thank you!</p>
                         <div class="flex gap-[2px]">
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                         </div>
                     </div>
@@ -319,19 +319,19 @@
                             thank you!</p>
                         <div class="flex gap-[2px]">
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                         </div>
                     </div>
@@ -347,19 +347,19 @@
                             thank you!</p>
                         <div class="flex gap-[2px]">
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                         </div>
                     </div>
@@ -375,19 +375,19 @@
                             thank you!</p>
                         <div class="flex gap-[2px]">
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                         </div>
                     </div>
@@ -403,19 +403,19 @@
                             thank you!</p>
                         <div class="flex gap-[2px]">
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                         </div>
                     </div>
@@ -434,19 +434,19 @@
                             thank you!</p>
                         <div class="flex gap-[2px]">
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                         </div>
                     </div>
@@ -462,19 +462,19 @@
                             thank you!</p>
                         <div class="flex gap-[2px]">
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                         </div>
                     </div>
@@ -490,19 +490,19 @@
                             thank you!</p>
                         <div class="flex gap-[2px]">
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                         </div>
                     </div>
@@ -518,19 +518,19 @@
                             thank you!</p>
                         <div class="flex gap-[2px]">
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                             <div>
-                                <img src="{{ asset('assets//icon/star.svg') }}" alt="star">
+                                <img src="{{ asset('assets/icon/star.png') }}" class="w-3.5 h-3.5" alt="star">
                             </div>
                         </div>
                     </div>
@@ -541,13 +541,13 @@
     <section id="FAQ" class="max-w-[1200px] mx-auto flex flex-col py-[70px] px-[100px]">
         <div class="flex justify-between items-center">
             <div class="flex flex-col gap-[30px]">
-                <div
+                {{-- <div
                     class="gradient-badge w-fit p-[8px_16px] rounded-full border border-[#FED6AD] flex items-center gap-[6px]">
                     <div>
                         <img src="{{ asset('assets//icon/medal-star.svg') }}" alt="icon">
                     </div>
                     <p class="font-medium text-sm text-[#FF6129]">Grow Your Career</p>
-                </div>
+                </div> --}}
                 <div class="flex flex-col">
                     <h2 class="font-bold text-[36px] leading-[52px]">Get Your Answers</h2>
                     <p class="text-lg text-[#475466]">It’s time to upgrade skills without limits!</p>
